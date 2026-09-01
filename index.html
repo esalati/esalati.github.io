@@ -1,439 +1,1157 @@
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>اکبر اصالتی | ایمنی، آتش‌نشانی و مدیریت بحران</title>
 
     <meta name="description"
-          content="وب‌سایت شخصی اکبر اصالتی؛ آموزش و فعالیت تخصصی در حوزه ایمنی، آتش‌نشانی، مدیریت بحران، ایمنی شهری و جستجو و نجات.">
-
-    <style>
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Tahoma, Arial, sans-serif;
-            background: #f5f7fa;
-            color: #172033;
-            line-height: 1.9;
-        }
-
-        /* ---------------- HEADER ---------------- */
-
-        header {
-            background: #071a33;
-            color: white;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 3px 15px rgba(0,0,0,0.15);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 15px 25px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 22px;
-            font-weight: bold;
-        }
-
-        .logo span {
-            display: block;
-            font-size: 12px;
-            color: #c8d2df;
-            font-weight: normal;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 25px;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-size: 14px;
-            transition: 0.3s;
-        }
-
-        nav a:hover {
-            color: #e84a4a;
-        }
-
-        /* ---------------- HERO ---------------- */
-
-        .hero {
-            background: linear-gradient(135deg, #071a33, #12345a);
-            color: white;
-        }
-
-        .hero-container {
-            max-width: 1200px;
-            margin: auto;
-            min-height: 600px;
-            padding: 70px 25px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 60px;
-        }
-
-        .hero-text {
-            flex: 1;
-        }
-
-        .hero-text .small-title {
-            color: #e84a4a;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .hero-text h1 {
-            font-size: 48px;
-            margin-bottom: 10px;
-        }
-
-        .hero-text h2 {
-            font-size: 23px;
-            font-weight: normal;
-            color: #dce5ef;
-            margin-bottom: 25px;
-        }
-
-        .hero-text p {
-            max-width: 650px;
-            color: #d5dfeb;
-            font-size: 16px;
-            margin-bottom: 30px;
-        }
-
-        .buttons {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 11px 25px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .btn-primary {
-            background: #e84a4a;
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: #c93636;
-        }
-
-        .btn-outline {
-            border: 1px solid #b9c7d8;
-            color: white;
-        }
-
-        .btn-outline:hover {
-            background: white;
-            color: #071a33;
-        }
-
-        /* ---------------- PHOTO ---------------- */
-
-        .photo-area {
-            width: 330px;
-            height: 410px;
-            border: 2px solid #8ea0b5;
-            border-radius: 10px;
-            background: rgba(255,255,255,0.07);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: #bdc9d6;
-            flex-shrink: 0;
-        }
-
-        .photo-area div {
-            padding: 30px;
-        }
-
-        .photo-area strong {
-            display: block;
-            font-size: 18px;
-            margin-bottom: 10px;
-            color: white;
-        }
-
-        /* ---------------- GENERAL ---------------- */
-
-        .section {
-            max-width: 1200px;
-            margin: auto;
-            padding: 80px 25px;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .section-title h2 {
-            font-size: 32px;
-            color: #071a33;
-            margin-bottom: 10px;
-        }
-
-        .section-title p {
-            color: #687386;
-        }
-
-        /* ---------------- EXPERTISE ---------------- */
-
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-        }
-
-        .card {
-            background: white;
-            padding: 30px 22px;
-            border-radius: 10px;
-            box-shadow: 0 5px 25px rgba(20,40,70,0.08);
-            transition: 0.3s;
-            border-top: 4px solid #071a33;
-        }
-
-        .card:hover {
-            transform: translateY(-6px);
-        }
-
-        .card-number {
-            font-size: 30px;
-            font-weight: bold;
-            color: #e84a4a;
-            margin-bottom: 10px;
-        }
-
-        .card h3 {
-            color: #071a33;
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-
-        .card p {
-            color: #687386;
-            font-size: 14px;
-        }
-
-        /* ---------------- ABOUT ---------------- */
-
-        .about {
-            background: white;
-        }
-
-        .about-container {
-            max-width: 1000px;
-            margin: auto;
-            text-align: center;
-        }
-
-        .about-container p {
-            color: #566174;
-            font-size: 16px;
-        }
-
-        /* ---------------- COURSES ---------------- */
-
-        .course-section {
-            background: #eef2f6;
-        }
-
-        .course-card {
-            background: white;
-            border-radius: 10px;
-            padding: 25px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-        }
-
-        .course-card h3 {
-            color: #071a33;
-            margin-bottom: 10px;
-        }
-
-        .course-card p {
-            color: #687386;
-            font-size: 14px;
-        }
-
-        /* ---------------- ARTICLES ---------------- */
-
-        .article-box {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-        }
-
-        .article {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.07);
-        }
-
-        .article-top {
-            height: 100px;
-            background: #071a33;
-        }
-
-        .article-content {
-            padding: 25px;
-        }
-
-        .article-content h3 {
-            color: #071a33;
-            margin-bottom: 10px;
-        }
-
-        .article-content p {
-            color: #687386;
-            font-size: 14px;
-        }
-
-        /* ---------------- CONTACT ---------------- */
-
-        .contact {
-            background: #071a33;
-            color: white;
-        }
-
-        .contact .section-title h2 {
-            color: white;
-        }
-
-        .contact .section-title p {
-            color: #c5d0dc;
-        }
-
-        .contact-info {
-            text-align: center;
-            font-size: 17px;
-            color: #d5dfeb;
-        }
-
-        /* ---------------- FOOTER ---------------- */
-
-        footer {
-            background: #041020;
-            color: #aeb9c7;
-            text-align: center;
-            padding: 25px;
-            font-size: 13px;
-        }
-
-        /* ---------------- MOBILE ---------------- */
-
-        @media (max-width: 900px) {
-
-            .cards {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .article-box {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-container {
-                flex-direction: column-reverse;
-                text-align: center;
-            }
-
-            .buttons {
-                justify-content: center;
-            }
-
-            .hero-text p {
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-        }
-
-        @media (max-width: 600px) {
-
-            nav {
-                display: none;
-            }
-
-            .hero-text h1 {
-                font-size: 35px;
-            }
-
-            .hero-text h2 {
-                font-size: 19px;
-            }
-
-            .photo-area {
-                width: 260px;
-                height: 320px;
-            }
-
-            .cards {
-                grid-template-columns: 1fr;
-            }
-
-            .section {
-                padding: 55px 20px;
-            }
-
-        }
-
-    </style>
+          content="وب‌سایت تخصصی اکبر اصالتی در حوزه ایمنی، آتش‌نشانی، مدیریت بحران، ایمنی شهری، جستجو و نجات و ارزیابی ریسک.">
+
+    <!-- فونت فارسی -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+
+<style>
+
+/* =====================================================
+   پایه
+===================================================== */
+
+:root {
+
+    --navy: #071a33;
+    --navy-light: #102c4d;
+
+    --blue: #244d70;
+
+    --red: #c93636;
+
+    --red-dark: #a82b2b;
+
+    --white: #ffffff;
+
+    --background: #f4f6f8;
+
+    --surface: #ffffff;
+
+    --text: #172331;
+
+    --muted: #667384;
+
+    --border: #e2e7ec;
+
+    --shadow: 0 12px 35px rgba(7,26,51,0.08);
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    font-family: "Vazirmatn", sans-serif;
+
+    background: var(--background);
+
+    color: var(--text);
+
+    line-height: 2;
+
+}
+
+
+/* =====================================================
+   کانتینر
+===================================================== */
+
+.container {
+
+    width: min(1180px, 92%);
+
+    margin: auto;
+
+}
+
+
+/* =====================================================
+   هدر
+===================================================== */
+
+header {
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+
+    background: rgba(7,26,51,0.97);
+
+    backdrop-filter: blur(10px);
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+
+}
+
+
+.nav {
+
+    height: 78px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+}
+
+
+.logo {
+
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: 800;
+
+    font-size: 20px;
+
+}
+
+
+.logo span {
+
+    display: block;
+
+    color: #aebdcc;
+
+    font-size: 11px;
+
+    font-weight: 400;
+
+    line-height: 1.5;
+
+}
+
+
+nav ul {
+
+    display: flex;
+
+    gap: 26px;
+
+    list-style: none;
+
+}
+
+
+nav a {
+
+    color: #dbe4ed;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    transition: 0.25s;
+
+}
+
+
+nav a:hover {
+
+    color: #ffffff;
+
+}
+
+
+/* =====================================================
+   Hero
+===================================================== */
+
+.hero {
+
+    background:
+
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(36,77,112,0.45),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            135deg,
+            #071a33,
+            #0d2948
+        );
+
+    color: white;
+
+}
+
+
+.hero-inner {
+
+    min-height: 650px;
+
+    display: grid;
+
+    grid-template-columns: 1.3fr 0.7fr;
+
+    align-items: center;
+
+    gap: 80px;
+
+    padding: 80px 0;
+
+}
+
+
+/* متن Hero */
+
+.eyebrow {
+
+    color: #e05a5a;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    margin-bottom: 15px;
+
+}
+
+
+.hero h1 {
+
+    font-size: clamp(40px, 5vw, 62px);
+
+    line-height: 1.3;
+
+    font-weight: 800;
+
+    margin-bottom: 8px;
+
+}
+
+
+.hero h2 {
+
+    color: #d8e2ec;
+
+    font-size: clamp(19px, 2.5vw, 27px);
+
+    font-weight: 400;
+
+    margin-bottom: 25px;
+
+}
+
+
+.hero-description {
+
+    color: #bfcbd7;
+
+    font-size: 16px;
+
+    max-width: 680px;
+
+    line-height: 2.1;
+
+}
+
+
+.hero-buttons {
+
+    display: flex;
+
+    gap: 14px;
+
+    margin-top: 32px;
+
+    flex-wrap: wrap;
+
+}
+
+
+.btn {
+
+    padding: 12px 24px;
+
+    border-radius: 6px;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition: 0.25s;
+
+}
+
+
+.btn-primary {
+
+    background: var(--red);
+
+    color: white;
+
+}
+
+
+.btn-primary:hover {
+
+    background: var(--red-dark);
+
+    transform: translateY(-2px);
+
+}
+
+
+.btn-secondary {
+
+    border: 1px solid #71869b;
+
+    color: white;
+
+}
+
+
+.btn-secondary:hover {
+
+    background: white;
+
+    color: var(--navy);
+
+}
+
+
+/* =====================================================
+   جایگاه عکس
+===================================================== */
+
+.profile-frame {
+
+    position: relative;
+
+    width: 330px;
+
+    height: 430px;
+
+    margin: auto;
+
+}
+
+
+.profile-frame::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 100%;
+
+    height: 100%;
+
+    border: 1px solid rgba(255,255,255,0.22);
+
+    border-radius: 12px;
+
+    transform: translate(-14px, 14px);
+
+}
+
+
+.profile-photo {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 100%;
+
+    border-radius: 12px;
+
+    border: 1px solid rgba(255,255,255,0.18);
+
+    background: linear-gradient(
+        145deg,
+        #183a5b,
+        #0a203b
+    );
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    color: #aebdcc;
+
+    overflow: hidden;
+
+}
+
+
+.profile-photo strong {
+
+    display: block;
+
+    color: white;
+
+    font-size: 18px;
+
+    margin-bottom: 8px;
+
+}
+
+
+.profile-photo small {
+
+    color: #8fa1b3;
+
+}
+
+
+/* =====================================================
+   نوار اعتبار
+===================================================== */
+
+.credentials {
+
+    background: white;
+
+    border-bottom: 1px solid var(--border);
+
+}
+
+
+.credentials-inner {
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+}
+
+
+.credential {
+
+    padding: 25px 20px;
+
+    text-align: center;
+
+    border-left: 1px solid var(--border);
+
+}
+
+
+.credential:last-child {
+
+    border-left: none;
+
+}
+
+
+.credential strong {
+
+    display: block;
+
+    color: var(--navy);
+
+    font-size: 18px;
+
+}
+
+
+.credential span {
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+}
+
+
+/* =====================================================
+   بخش عمومی
+===================================================== */
+
+.section {
+
+    padding: 90px 0;
+
+}
+
+
+.section-header {
+
+    margin-bottom: 48px;
+
+}
+
+
+.section-header.center {
+
+    text-align: center;
+
+}
+
+
+.section-title {
+
+    color: var(--navy);
+
+    font-size: 31px;
+
+    font-weight: 800;
+
+    margin-bottom: 8px;
+
+}
+
+
+.section-subtitle {
+
+    color: var(--muted);
+
+    font-size: 14px;
+
+}
+
+
+/* =====================================================
+   تخصص‌ها
+===================================================== */
+
+.expertise-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 20px;
+
+}
+
+
+.expertise-card {
+
+    background: white;
+
+    padding: 30px 25px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+
+    box-shadow: var(--shadow);
+
+    transition: 0.25s;
+
+}
+
+
+.expertise-card:hover {
+
+    transform: translateY(-5px);
+
+}
+
+
+.number {
+
+    color: var(--red);
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    margin-bottom: 15px;
+
+}
+
+
+.expertise-card h3 {
+
+    color: var(--navy);
+
+    font-size: 18px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.expertise-card p {
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+    line-height: 1.9;
+
+}
+
+
+/* =====================================================
+   درباره من
+===================================================== */
+
+.about {
+
+    background: white;
+
+}
+
+
+.about-grid {
+
+    display: grid;
+
+    grid-template-columns: 0.8fr 1.2fr;
+
+    gap: 70px;
+
+    align-items: center;
+
+}
+
+
+.about-box {
+
+    border-right: 4px solid var(--red);
+
+    padding-right: 25px;
+
+}
+
+
+.about-box h3 {
+
+    color: var(--navy);
+
+    font-size: 25px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.about-text {
+
+    color: var(--muted);
+
+    font-size: 15px;
+
+    line-height: 2.2;
+
+}
+
+
+/* =====================================================
+   آموزش
+===================================================== */
+
+.courses {
+
+    background: #edf1f5;
+
+}
+
+
+.course-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 22px;
+
+}
+
+
+.course {
+
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 10px;
+
+    border: 1px solid var(--border);
+
+    transition: 0.25s;
+
+}
+
+
+.course:hover {
+
+    box-shadow: var(--shadow);
+
+}
+
+
+.course-label {
+
+    color: var(--red);
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+}
+
+
+.course h3 {
+
+    color: var(--navy);
+
+    font-size: 20px;
+
+    margin: 8px 0;
+
+}
+
+
+.course p {
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+}
+
+
+/* =====================================================
+   منابع
+===================================================== */
+
+.resources-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+
+}
+
+
+.resource {
+
+    background: white;
+
+    padding: 28px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+
+}
+
+
+.resource h3 {
+
+    color: var(--navy);
+
+    margin-bottom: 8px;
+
+}
+
+
+.resource p {
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+}
+
+
+/* =====================================================
+   مقالات
+===================================================== */
+
+.articles {
+
+    background: white;
+
+}
+
+
+.article-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+
+}
+
+
+.article {
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    background: white;
+
+}
+
+
+.article-image {
+
+    height: 130px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #071a33,
+            #244d70
+        );
+
+}
+
+
+.article-content {
+
+    padding: 25px;
+
+}
+
+
+.article-content h3 {
+
+    color: var(--navy);
+
+    font-size: 17px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.article-content p {
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+}
+
+
+/* =====================================================
+   دعوت به آموزش
+===================================================== */
+
+.cta {
+
+    background: var(--navy);
+
+    color: white;
+
+}
+
+
+.cta-inner {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 30px;
+
+}
+
+
+.cta h2 {
+
+    font-size: 27px;
+
+    margin-bottom: 5px;
+
+}
+
+
+.cta p {
+
+    color: #bdc9d5;
+
+    font-size: 14px;
+
+}
+
+
+/* =====================================================
+   تماس
+===================================================== */
+
+.contact {
+
+    background: #f4f6f8;
+
+}
+
+
+.contact-box {
+
+    background: white;
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    padding: 45px;
+
+    text-align: center;
+
+}
+
+
+.contact-box h2 {
+
+    color: var(--navy);
+
+    margin-bottom: 10px;
+
+}
+
+
+.contact-box p {
+
+    color: var(--muted);
+
+}
+
+
+/* =====================================================
+   Footer
+===================================================== */
+
+footer {
+
+    background: #041020;
+
+    color: #8797a8;
+
+    text-align: center;
+
+    padding: 30px 20px;
+
+    font-size: 12px;
+
+}
+
+
+footer strong {
+
+    color: white;
+
+}
+
+
+/* =====================================================
+   موبایل
+===================================================== */
+
+@media (max-width: 950px) {
+
+    nav {
+
+        display: none;
+
+    }
+
+
+    .hero-inner {
+
+        grid-template-columns: 1fr;
+
+        text-align: center;
+
+    }
+
+
+    .hero-description {
+
+        margin: auto;
+
+    }
+
+
+    .hero-buttons {
+
+        justify-content: center;
+
+    }
+
+
+    .credentials-inner {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+
+    .credential {
+
+        border-bottom: 1px solid var(--border);
+
+    }
+
+
+    .expertise-grid {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+
+    .about-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .resources-grid,
+
+    .article-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .hero-inner {
+
+        padding: 60px 0;
+
+    }
+
+
+    .profile-frame {
+
+        width: 270px;
+
+        height: 350px;
+
+    }
+
+
+    .credentials-inner,
+
+    .expertise-grid,
+
+    .course-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .section {
+
+        padding: 65px 0;
+
+    }
+
+
+    .section-title {
+
+        font-size: 26px;
+
+    }
+
+
+    .cta-inner {
+
+        flex-direction: column;
+
+        text-align: center;
+
+    }
+
+}
+
+</style>
+
 </head>
+
 
 <body>
 
-<!-- ================= NAVIGATION ================= -->
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
 <header>
 
-    <div class="nav-container">
+    <div class="container nav">
 
-        <div class="logo">
+        <a href="#home" class="logo">
+
             اکبر اصالتی
-            <span>ایمنی | آتش‌نشانی | مدیریت بحران</span>
-        </div>
+
+            <span>
+                ایمنی | آتش‌نشانی | مدیریت بحران
+            </span>
+
+        </a>
+
 
         <nav>
 
             <ul>
 
                 <li><a href="#home">خانه</a></li>
+
                 <li><a href="#about">درباره من</a></li>
+
                 <li><a href="#expertise">تخصص‌ها</a></li>
+
                 <li><a href="#courses">آموزش‌ها</a></li>
+
+                <li><a href="#resources">منابع</a></li>
+
                 <li><a href="#articles">مقالات</a></li>
+
                 <li><a href="#contact">تماس</a></li>
 
             </ul>
@@ -445,64 +1163,81 @@
 </header>
 
 
-<!-- ================= HERO ================= -->
+
+<!-- =====================================================
+     HERO
+===================================================== -->
 
 <section class="hero" id="home">
 
-    <div class="hero-container">
+    <div class="container hero-inner">
 
-        <div class="hero-text">
 
-            <div class="small-title">
-                وب‌سایت تخصصی
+        <div>
+
+            <div class="eyebrow">
+                وب‌سایت تخصصی و آموزشی
             </div>
+
 
             <h1>
                 اکبر اصالتی
             </h1>
 
+
             <h2>
                 متخصص ایمنی، آتش‌نشانی و مدیریت بحران
             </h2>
 
-            <p>
-                آموزش، پژوهش و توسعه دانش کاربردی در حوزه ایمنی،
-                مدیریت شرایط اضطراری و بحران، ایمنی شهری،
-                ارزیابی ریسک و عملیات جستجو و نجات.
+
+            <p class="hero-description">
+
+                این وب‌سایت با هدف ارائه دانش تخصصی،
+                آموزش‌های کاربردی و منابع حرفه‌ای در
+                حوزه ایمنی، مدیریت شرایط اضطراری و بحران،
+                ایمنی شهری، جستجو و نجات و ارزیابی ریسک
+                ایجاد شده است.
+
             </p>
 
-            <div class="buttons">
 
-                <a href="#about" class="btn btn-primary">
+            <div class="hero-buttons">
+
+                <a href="#courses" class="btn btn-primary">
+                    مشاهده آموزش‌ها
+                </a>
+
+                <a href="#about" class="btn btn-secondary">
                     درباره من
                 </a>
 
-                <a href="#courses" class="btn btn-outline">
-                    دوره‌های آموزشی
-                </a>
-
             </div>
 
         </div>
 
 
-        <!-- جای عکس شما -->
 
-        <div class="photo-area">
+        <!-- جای عکس -->
 
-            <div>
+        <div class="profile-frame">
 
-                <strong>
-                    محل تصویر حرفه‌ای
-                </strong>
+            <div class="profile-photo">
 
-                تصویر شما در این قسمت قرار خواهد گرفت.
+                <div>
 
-                <br><br>
+                    <strong>
+                        محل تصویر حرفه‌ای
+                    </strong>
 
-                <small>
-                    Professional Profile Photo
-                </small>
+                    تصویر پروفایل
+
+                    <br><br>
+
+                    <small>
+                        Professional Profile
+                    </small>
+
+                </div>
 
             </div>
 
@@ -513,85 +1248,159 @@
 </section>
 
 
-<!-- ================= EXPERTISE ================= -->
+
+<!-- =====================================================
+     اعتبار / حوزه فعالیت
+===================================================== -->
+
+<section class="credentials">
+
+    <div class="container credentials-inner">
+
+        <div class="credential">
+
+            <strong>
+                آموزش
+            </strong>
+
+            <span>
+                آموزش تخصصی و کاربردی
+            </span>
+
+        </div>
+
+
+        <div class="credential">
+
+            <strong>
+                پژوهش
+            </strong>
+
+            <span>
+                دانش و مطالعات تخصصی
+            </span>
+
+        </div>
+
+
+        <div class="credential">
+
+            <strong>
+                مدیریت
+            </strong>
+
+            <span>
+                مدیریت ایمنی و بحران
+            </span>
+
+        </div>
+
+
+        <div class="credential">
+
+            <strong>
+                منابع
+            </strong>
+
+            <span>
+                جزوات، مقالات و ابزارهای آموزشی
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     تخصص‌ها
+===================================================== -->
 
 <section class="section" id="expertise">
 
-    <div class="section-title">
+    <div class="container">
 
-        <h2>
-            حوزه‌های تخصصی
-        </h2>
+        <div class="section-header center">
 
-        <p>
-            محورهای اصلی فعالیت و آموزش
-        </p>
+            <h2 class="section-title">
+                حوزه‌های تخصصی
+            </h2>
 
-    </div>
-
-
-    <div class="cards">
-
-        <div class="card">
-
-            <div class="card-number">01</div>
-
-            <h3>
-                مدیریت بحران
-            </h3>
-
-            <p>
-                مدیریت شرایط اضطراری، بحران، آمادگی،
-                پاسخ، بازیابی و تاب‌آوری.
+            <p class="section-subtitle">
+                محورهای اصلی فعالیت علمی، آموزشی و حرفه‌ای
             </p>
 
         </div>
 
 
-        <div class="card">
-
-            <div class="card-number">02</div>
-
-            <h3>
-                ایمنی شهری
-            </h3>
-
-            <p>
-                ایمنی معابر، عملیات شهری،
-                تحلیل نقاط حادثه‌خیز و برنامه‌ریزی ایمنی.
-            </p>
-
-        </div>
+        <div class="expertise-grid">
 
 
-        <div class="card">
+            <div class="expertise-card">
 
-            <div class="card-number">03</div>
+                <div class="number">01</div>
 
-            <h3>
-                جستجو و نجات
-            </h3>
+                <h3>
+                    مدیریت بحران
+                </h3>
 
-            <p>
-                مدیریت عملیات جستجو و نجات شهری،
-                آواربرداری و عملیات نجات.
-            </p>
+                <p>
+                    مدیریت شرایط اضطراری و بحران،
+                    آمادگی، پاسخ، بازیابی و تاب‌آوری.
+                </p>
 
-        </div>
+            </div>
 
 
-        <div class="card">
+            <div class="expertise-card">
 
-            <div class="card-number">04</div>
+                <div class="number">02</div>
 
-            <h3>
-                ارزیابی ریسک
-            </h3>
+                <h3>
+                    ایمنی شهری
+                </h3>
 
-            <p>
-                شناسایی خطر، تحلیل ریسک و استفاده
-                از روش‌های حرفه‌ای ارزیابی ریسک.
-            </p>
+                <p>
+                    تحلیل و مدیریت مخاطرات شهری،
+                    ایمنی معابر و عملیات شهری.
+                </p>
+
+            </div>
+
+
+            <div class="expertise-card">
+
+                <div class="number">03</div>
+
+                <h3>
+                    جستجو و نجات شهری
+                </h3>
+
+                <p>
+                    مدیریت عملیات جستجو و نجات،
+                    USAR و عملیات نجات در شرایط دشوار.
+                </p>
+
+            </div>
+
+
+            <div class="expertise-card">
+
+                <div class="number">04</div>
+
+                <h3>
+                    ارزیابی ریسک
+                </h3>
+
+                <p>
+                    شناسایی خطر، تحلیل ریسک و روش‌های
+                    حرفه‌ای ارزیابی و کنترل ریسک.
+                </p>
+
+            </div>
+
 
         </div>
 
@@ -600,81 +1409,104 @@
 </section>
 
 
-<!-- ================= ABOUT ================= -->
 
-<section class="about" id="about">
+<!-- =====================================================
+     درباره من
+===================================================== -->
 
-    <div class="section">
+<section class="section about" id="about">
 
-        <div class="section-title">
+    <div class="container about-grid">
 
-            <h2>
-                درباره من
-            </h2>
+
+        <div class="about-box">
+
+            <h3>
+                دانش تخصصی،
+                زمانی ارزشمند است که
+                قابل استفاده باشد.
+            </h3>
 
         </div>
 
 
-        <div class="about-container">
+        <div class="about-text">
 
             <p>
-                این بخش برای معرفی حرفه‌ای، سوابق،
-                تجربیات، زمینه‌های تخصصی و مسیر فعالیت
-                علمی و آموزشی اکبر اصالتی طراحی شده است.
+
+                هدف این وب‌سایت ایجاد بستری برای ارائه
+                دانش و تجربه در حوزه‌های ایمنی،
+                آتش‌نشانی، مدیریت شرایط اضطراری و بحران
+                و آموزش نیروهای تخصصی است.
+
             </p>
 
             <br>
 
             <p>
-                در این وب‌سایت مجموعه‌ای از مطالب،
-                دوره‌های آموزشی، مقالات، کتاب‌ها،
-                پروژه‌ها و منابع تخصصی حوزه ایمنی،
-                آتش‌نشانی و مدیریت بحران ارائه خواهد شد.
+
+                مطالب آموزشی، دوره‌ها، مقالات، جزوات،
+                فایل‌های آموزشی و منابع تخصصی به‌تدریج
+                در این پایگاه قرار خواهند گرفت.
+
             </p>
 
         </div>
+
 
     </div>
 
 </section>
 
 
-<!-- ================= COURSES ================= -->
 
-<section class="course-section" id="courses">
+<!-- =====================================================
+     دوره‌ها
+===================================================== -->
 
-    <div class="section">
+<section class="section courses" id="courses">
 
-        <div class="section-title">
+    <div class="container">
 
-            <h2>
-                دوره‌های آموزشی
+        <div class="section-header center">
+
+            <h2 class="section-title">
+                آموزش‌های تخصصی
             </h2>
 
-            <p>
-                آموزش تخصصی و کاربردی
+            <p class="section-subtitle">
+                دوره‌ها و آموزش‌های حرفه‌ای
             </p>
 
         </div>
 
 
-        <div class="cards">
+        <div class="course-grid">
 
-            <div class="course-card">
+
+            <div class="course">
+
+                <div class="course-label">
+                    EMERGENCY & CRISIS MANAGEMENT
+                </div>
 
                 <h3>
                     مدیریت شرایط اضطراری و بحران
                 </h3>
 
                 <p>
-                    مفاهیم، ساختارها، برنامه‌ریزی،
-                    آمادگی، پاسخ و مدیریت بحران.
+                    مفاهیم، اصول، برنامه‌ریزی،
+                    آمادگی، پاسخ، بازیابی و مدیریت بحران.
                 </p>
 
             </div>
 
 
-            <div class="course-card">
+            <div class="course">
+
+                <div class="course-label">
+                    URBAN SEARCH & RESCUE
+                </div>
 
                 <h3>
                     مدیریت جستجو و نجات شهری
@@ -682,38 +1514,47 @@
 
                 <p>
                     اصول مدیریت عملیات USAR،
-                    سازماندهی، تصمیم‌گیری و عملیات نجات.
+                    تصمیم‌گیری، سازماندهی و عملیات نجات.
                 </p>
 
             </div>
 
 
-            <div class="course-card">
+            <div class="course">
+
+                <div class="course-label">
+                    URBAN SAFETY
+                </div>
 
                 <h3>
-                    مهندسی و مدیریت ایمنی شهری
+                    مدیریت و مهندسی ایمنی شهری
                 </h3>
 
                 <p>
-                    بررسی ایمنی شهری، معابر،
-                    عملیات اجرایی و تحلیل خطرات شهری.
+                    ایمنی معابر، عملیات شهری،
+                    نقاط حادثه‌خیز و برنامه‌ریزی ایمنی.
                 </p>
 
             </div>
 
 
-            <div class="course-card">
+            <div class="course">
+
+                <div class="course-label">
+                    RISK ASSESSMENT
+                </div>
 
                 <h3>
                     ارزیابی و مدیریت ریسک
                 </h3>
 
                 <p>
-                    HIRA، JSA، JHA، HAZID،
-                    FMEA و سایر روش‌های تحلیل خطر.
+                    HIRA، JSA، JHA، HAZID، FMEA
+                    و روش‌های تحلیل و ارزیابی خطر.
                 </p>
 
             </div>
+
 
         </div>
 
@@ -722,109 +1563,215 @@
 </section>
 
 
-<!-- ================= ARTICLES ================= -->
 
-<section class="section" id="articles">
+<!-- =====================================================
+     منابع آموزشی
+===================================================== -->
 
-    <div class="section-title">
+<section class="section" id="resources">
 
-        <h2>
-            مقالات و دانش تخصصی
-        </h2>
+    <div class="container">
 
-        <p>
-            مطالب آموزشی و حرفه‌ای
-        </p>
+        <div class="section-header center">
 
-    </div>
-
-
-    <div class="article-box">
-
-        <div class="article">
-
-            <div class="article-top"></div>
-
-            <div class="article-content">
-
-                <h3>
-                    ایمنی و مدیریت ریسک
-                </h3>
-
-                <p>
-                    مقالات و مطالب تخصصی در زمینه
-                    شناسایی خطر و مدیریت ریسک.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="article">
-
-            <div class="article-top"></div>
-
-            <div class="article-content">
-
-                <h3>
-                    مدیریت بحران
-                </h3>
-
-                <p>
-                    مطالب آموزشی درباره مدیریت شرایط
-                    اضطراری و بحران.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="article">
-
-            <div class="article-top"></div>
-
-            <div class="article-content">
-
-                <h3>
-                    آتش‌نشانی و عملیات نجات
-                </h3>
-
-                <p>
-                    دانش کاربردی در حوزه عملیات
-                    آتش‌نشانی، جستجو و نجات.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ================= CONTACT ================= -->
-
-<section class="contact" id="contact">
-
-    <div class="section">
-
-        <div class="section-title">
-
-            <h2>
-                ارتباط با من
+            <h2 class="section-title">
+                منابع آموزشی
             </h2>
 
-            <p>
-                برای ارتباط حرفه‌ای و آموزشی
+            <p class="section-subtitle">
+                پایگاه منابع تخصصی و قابل استفاده
             </p>
 
         </div>
 
 
-        <div class="contact-info">
+        <div class="resources-grid">
+
+
+            <div class="resource">
+
+                <h3>
+                    جزوات آموزشی
+                </h3>
+
+                <p>
+                    PDF و سایر منابع آموزشی دوره‌ها.
+                </p>
+
+            </div>
+
+
+            <div class="resource">
+
+                <h3>
+                    پاورپوینت‌ها
+                </h3>
+
+                <p>
+                    ارائه‌ها و محتوای آموزشی دوره‌های تخصصی.
+                </p>
+
+            </div>
+
+
+            <div class="resource">
+
+                <h3>
+                    فرم‌ها و چک‌لیست‌ها
+                </h3>
+
+                <p>
+                    ابزارهای کاربردی برای کارشناسان و مدیران.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     مقالات
+===================================================== -->
+
+<section class="section articles" id="articles">
+
+    <div class="container">
+
+        <div class="section-header center">
+
+            <h2 class="section-title">
+                مقالات و دانش تخصصی
+            </h2>
+
+            <p class="section-subtitle">
+                مطالب علمی، آموزشی و کاربردی
+            </p>
+
+        </div>
+
+
+        <div class="article-grid">
+
+
+            <article class="article">
+
+                <div class="article-image"></div>
+
+                <div class="article-content">
+
+                    <h3>
+                        مدیریت ریسک در سازمان
+                    </h3>
+
+                    <p>
+                        مطالب تخصصی درباره شناسایی خطر،
+                        ارزیابی ریسک و کنترل مخاطرات.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="article">
+
+                <div class="article-image"></div>
+
+                <div class="article-content">
+
+                    <h3>
+                        ایمنی شهری
+                    </h3>
+
+                    <p>
+                        رویکردهای حرفه‌ای در شناسایی
+                        و مدیریت مخاطرات شهری.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="article">
+
+                <div class="article-image"></div>
+
+                <div class="article-content">
+
+                    <h3>
+                        جستجو و نجات
+                    </h3>
+
+                    <p>
+                        دانش و تجربه تخصصی در مدیریت
+                        عملیات جستجو و نجات.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     دعوت به آموزش
+===================================================== -->
+
+<section class="section cta">
+
+    <div class="container cta-inner">
+
+        <div>
+
+            <h2>
+                دانش ایمنی را کاربردی بیاموزیم.
+            </h2>
+
+            <p>
+                آموزش تخصصی برای تصمیم‌گیری بهتر
+                و عملکرد حرفه‌ای‌تر.
+            </p>
+
+        </div>
+
+
+        <a href="#courses" class="btn btn-primary">
+            مشاهده دوره‌ها
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     تماس
+===================================================== -->
+
+<section class="section contact" id="contact">
+
+    <div class="container">
+
+        <div class="contact-box">
+
+            <h2>
+                ارتباط حرفه‌ای
+            </h2>
 
             <p>
                 اطلاعات تماس و شبکه‌های حرفه‌ای
@@ -838,16 +1785,28 @@
 </section>
 
 
-<!-- ================= FOOTER ================= -->
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
 <footer>
 
-    © 2026 Akbar Esalati
+    <strong>
+        اکبر اصالتی
+    </strong>
+
     <br>
-    Safety • Firefighting • Emergency & Crisis Management
+
+    ایمنی • آتش‌نشانی • مدیریت بحران • آموزش تخصصی
+
+    <br><br>
+
+    © 2026 Akbar Esalati
 
 </footer>
 
 
 </body>
+
 </html>
