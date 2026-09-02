@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
@@ -25,6 +24,7 @@
     --muted:#687687;
     --border:#e1e6eb;
     --green:#287a55;
+    --orange:#b56a18;
     --shadow:0 10px 30px rgba(7,26,51,.08);
 }
 
@@ -41,10 +41,7 @@ body{
     line-height:1.9;
 }
 
-button,
-input,
-textarea,
-select{
+button,input,textarea,select{
     font-family:inherit;
 }
 
@@ -166,7 +163,7 @@ button{
 
 .content{
     padding:35px;
-    max-width:1300px;
+    max-width:1400px;
 }
 
 /* DASHBOARD */
@@ -277,6 +274,32 @@ button{
     font-size:11px;
 }
 
+.item-meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+    margin-top:10px;
+}
+
+.badge{
+    display:inline-block;
+    padding:2px 8px;
+    border-radius:20px;
+    background:#edf1f5;
+    color:var(--blue);
+    font-size:9px;
+}
+
+.badge.published{
+    background:#e8f4ee;
+    color:var(--green);
+}
+
+.badge.draft{
+    background:#fff2df;
+    color:var(--orange);
+}
+
 .actions{
     display:flex;
     gap:8px;
@@ -366,6 +389,10 @@ button{
     resize:vertical;
 }
 
+.article-body{
+    min-height:350px !important;
+}
+
 .form-actions{
     display:flex;
     gap:10px;
@@ -406,10 +433,6 @@ button{
 }
 
 /* MOBILE */
-
-.mobile-menu{
-    display:none;
-}
 
 @media(max-width:900px){
 
@@ -475,8 +498,6 @@ button{
 <body>
 
 <div class="layout">
-
-<!-- SIDEBAR -->
 
 <aside class="sidebar">
 
@@ -560,8 +581,6 @@ button{
 </aside>
 
 
-<!-- MAIN -->
-
 <main class="main">
 
 <div class="topbar">
@@ -623,9 +642,9 @@ button{
 
 <div class="notice">
 
-<strong>مرحله اول سیستم:</strong>
-این پنل برای مدیریت ساختاریافته محتوای سایت طراحی شده است.
-در مراحل بعدی، اتصال امن آن به مخزن GitHub و انتشار مستقیم محتوا را اضافه خواهیم کرد.
+<strong>وضعیت سیستم:</strong>
+اطلاعات فعلی پنل در مرورگر ذخیره می‌شود.
+اتصال امن به GitHub و انتشار مستقیم محتوا در مرحله بعد توسعه خواهد یافت.
 
 </div>
 
@@ -722,7 +741,7 @@ button{
 </strong>
 
 <span>
-در مرحله بعد امکان بارگذاری و اتصال فایل‌ها به GitHub اضافه می‌شود.
+ساختار مدیریت فایل در مرحله بعد تکمیل خواهد شد.
 </span>
 
 </div>
@@ -776,7 +795,7 @@ button{
 </strong>
 
 <span>
-در مرحله بعد سیستم مدیریت رسانه را اضافه می‌کنیم.
+سیستم مدیریت رسانه در مرحله بعد توسعه خواهد یافت.
 </span>
 
 </div>
@@ -811,10 +830,12 @@ button{
 <section class="panel" id="settings">
 
 <div class="panel-head">
+
 <div>
 <h2>تنظیمات</h2>
 <p>تنظیمات پایه پایگاه تخصصی</p>
 </div>
+
 </div>
 
 <div class="form-box">
@@ -839,9 +860,11 @@ button{
 </div>
 
 <div class="form-actions">
+
 <button class="btn btn-success" onclick="saveSettings()">
 ذخیره تنظیمات
 </button>
+
 </div>
 
 </div>
@@ -865,7 +888,7 @@ button{
 <div class="form-box">
 
 <div class="notice">
-اطلاعات فعلی پنل در مرورگر ذخیره می‌شود. می‌توانیم در مرحله بعد نسخه کامل پشتیبان JSON و بازیابی اطلاعات را توسعه دهیم.
+نسخه پشتیبان شامل اطلاعات ذخیره‌شده در پنل خواهد بود.
 </div>
 
 <button class="btn btn-success" onclick="exportData()">
@@ -884,11 +907,12 @@ button{
 <div class="panel-head">
 
 <div>
+
 <h2 id="editorTitle">
 ایجاد محتوای جدید
 </h2>
 
-<p>
+<p id="editorDescription">
 اطلاعات موردنظر را وارد کنید.
 </p>
 
@@ -900,7 +924,7 @@ button{
 
 <div class="form-grid">
 
-<div class="field">
+<div class="field full">
 <label>عنوان</label>
 <input id="contentTitle" placeholder="عنوان محتوا">
 </div>
@@ -923,18 +947,55 @@ button{
 </div>
 
 <div class="field">
-<label>تاریخ</label>
+<label>تاریخ انتشار</label>
 <input id="contentDate" type="date">
 </div>
 
 <div class="field">
-<label>برچسب</label>
-<input id="contentTag" placeholder="مثلاً مدیریت بحران">
+<label>نویسنده</label>
+<input id="contentAuthor" value="اکبر اصالتی">
+</div>
+
+<div class="field">
+<label>برچسب‌ها</label>
+<input id="contentTag" placeholder="مثلاً مدیریت بحران، ایمنی">
+</div>
+
+<div class="field">
+<label>وضعیت انتشار</label>
+
+<select id="contentStatus">
+
+<option value="draft">پیش‌نویس</option>
+<option value="published">منتشرشده</option>
+
+</select>
+
 </div>
 
 <div class="field full">
-<label>توضیحات</label>
-<textarea id="contentDescription" placeholder="توضیحات محتوا..."></textarea>
+<label>خلاصه مقاله</label>
+<textarea id="contentSummary"
+placeholder="خلاصه کوتاه و حرفه‌ای مقاله..."></textarea>
+</div>
+
+<div class="field full">
+<label>متن کامل مقاله</label>
+<textarea id="contentBody"
+class="article-body"
+placeholder="متن کامل مقاله را اینجا وارد کنید..."></textarea>
+</div>
+
+<div class="field full">
+<label>آدرس تصویر شاخص</label>
+<input id="contentImage"
+placeholder="در مرحله بعد امکان بارگذاری مستقیم تصویر اضافه می‌شود.">
+</div>
+
+<div class="field full">
+<label>آدرس فایل PDF</label>
+<input id="contentPdf"
+placeholder="در مرحله بعد امکان اتصال فایل PDF اضافه می‌شود.">
 </div>
 
 </div>
@@ -942,7 +1003,7 @@ button{
 <div class="form-actions">
 
 <button class="btn btn-success" onclick="saveContent()">
-ذخیره
+ذخیره محتوا
 </button>
 
 <button class="btn btn-secondary" onclick="cancelEditor()">
@@ -966,21 +1027,18 @@ button{
 <script>
 
 let currentType = null;
+let editingId = null;
+let previousPanel = "dashboard";
+
 
 const typeNames = {
 
 article:"مقاله",
-
 course:"دوره آموزشی",
-
 experience:"تجربه آموزشی",
-
 library:"منبع",
-
 tool:"ابزار",
-
 media:"رسانه",
-
 research:"پژوهش"
 
 };
@@ -994,7 +1052,11 @@ document.querySelectorAll(".panel").forEach(panel=>{
 panel.classList.remove("active");
 });
 
-document.getElementById(id).classList.add("active");
+const panel=document.getElementById(id);
+
+if(panel){
+panel.classList.add("active");
+}
 
 document.querySelectorAll(".menu button").forEach(btn=>{
 btn.classList.remove("active");
@@ -1007,23 +1069,14 @@ button.classList.add("active");
 const titles={
 
 dashboard:"داشبورد",
-
 articles:"مقالات و دانش",
-
 courses:"دوره‌های آموزشی",
-
 experience:"سوابق آموزشی و حرفه‌ای",
-
 library:"کتابخانه و منابع",
-
 tools:"ابزارها و فرم‌ها",
-
 media:"تصاویر و ویدئوها",
-
 research:"پژوهش و پروژه‌ها",
-
 settings:"تنظیمات",
-
 backup:"پشتیبان‌گیری"
 
 };
@@ -1036,9 +1089,20 @@ titles[id] || "مدیریت محتوا";
 
 /* EDITOR */
 
-function showEditor(type){
+function showEditor(type,id=null){
 
 currentType=type;
+editingId=id;
+
+previousPanel =
+type==="article" ? "articles" :
+type==="course" ? "courses" :
+type==="experience" ? "experience" :
+type==="library" ? "library" :
+type==="tool" ? "tools" :
+type==="media" ? "media" :
+type==="research" ? "research" :
+"dashboard";
 
 document.querySelectorAll(".panel").forEach(panel=>{
 panel.classList.remove("active");
@@ -1047,16 +1111,28 @@ panel.classList.remove("active");
 document.getElementById("editor").classList.add("active");
 
 document.getElementById("pageTitle").textContent =
-"ایجاد "+typeNames[type];
+id ? "ویرایش "+typeNames[type] : "ایجاد "+typeNames[type];
 
 document.getElementById("editorTitle").textContent =
-"ایجاد "+typeNames[type]+" جدید";
+id ? "ویرایش "+typeNames[type] : "ایجاد "+typeNames[type]+" جدید";
+
+if(!id){
 
 document.getElementById("contentTitle").value="";
 document.getElementById("contentDescription").value="";
+document.getElementById("contentSummary").value="";
+document.getElementById("contentBody").value="";
 document.getElementById("contentTag").value="";
+document.getElementById("contentImage").value="";
+document.getElementById("contentPdf").value="";
+document.getElementById("contentAuthor").value="اکبر اصالتی";
+document.getElementById("contentStatus").value="draft";
+document.getElementById("contentCategory").value="general";
+
 document.getElementById("contentDate").value=
 new Date().toISOString().split("T")[0];
+
+}
 
 }
 
@@ -1065,45 +1141,127 @@ new Date().toISOString().split("T")[0];
 
 function saveContent(){
 
-const title=document.getElementById("contentTitle").value.trim();
+const title=
+document.getElementById("contentTitle").value.trim();
 
 if(!title){
 
 alert("لطفاً عنوان را وارد کنید.");
-
 return;
 
 }
 
 const item={
 
-id:Date.now(),
+id:editingId || Date.now(),
 
 title:title,
 
-category:document.getElementById("contentCategory").value,
+category:
+document.getElementById("contentCategory").value,
 
-date:document.getElementById("contentDate").value,
+date:
+document.getElementById("contentDate").value,
 
-tag:document.getElementById("contentTag").value,
+author:
+document.getElementById("contentAuthor").value.trim(),
 
-description:document.getElementById("contentDescription").value
+tag:
+document.getElementById("contentTag").value.trim(),
+
+status:
+document.getElementById("contentStatus").value,
+
+summary:
+document.getElementById("contentSummary").value.trim(),
+
+body:
+document.getElementById("contentBody").value,
+
+image:
+document.getElementById("contentImage").value.trim(),
+
+pdf:
+document.getElementById("contentPdf").value.trim(),
+
+description:
+document.getElementById("contentSummary").value.trim(),
+
+updatedAt:
+new Date().toISOString()
 
 };
 
 const key="cms_"+currentType;
 
-const items=JSON.parse(localStorage.getItem(key) || "[]");
+let items=
+JSON.parse(localStorage.getItem(key) || "[]");
+
+
+if(editingId){
+
+const index=
+items.findIndex(x=>x.id===editingId);
+
+if(index!==-1){
+
+items[index]=item;
+
+}
+
+}else{
 
 items.push(item);
 
-localStorage.setItem(key,JSON.stringify(items));
+}
 
-alert("محتوا با موفقیت ذخیره شد.");
+
+localStorage.setItem(
+key,
+JSON.stringify(items)
+);
+
+
+alert(
+editingId
+? "محتوا با موفقیت ویرایش شد."
+: "محتوا با موفقیت ذخیره شد."
+);
+
+
+editingId=null;
 
 renderAll();
 
-cancelEditor();
+openContentPanel(currentType);
+
+}
+
+
+/* RETURN TO CORRECT PANEL */
+
+function openContentPanel(type){
+
+const map={
+
+article:"articles",
+course:"courses",
+experience:"experience",
+library:"library",
+tool:"tools",
+media:"media",
+research:"research"
+
+};
+
+const id=map[type] || "dashboard";
+
+const button=
+document.querySelector(
+'.menu button[onclick*="' + id + '"]'
+);
+
+showPanel(id,button);
 
 }
 
@@ -1112,11 +1270,9 @@ cancelEditor();
 
 function cancelEditor(){
 
-document.getElementById("editor").classList.remove("active");
+editingId=null;
 
-document.getElementById("dashboard").classList.add("active");
-
-document.getElementById("pageTitle").textContent="داشبورد";
+openContentPanel(currentType || "article");
 
 }
 
@@ -1127,11 +1283,14 @@ function renderList(type,elementId){
 
 const key="cms_"+type;
 
-const items=JSON.parse(localStorage.getItem(key) || "[]");
+const items=
+JSON.parse(localStorage.getItem(key) || "[]");
 
-const container=document.getElementById(elementId);
+const container=
+document.getElementById(elementId);
 
 if(!container) return;
+
 
 if(items.length===0){
 
@@ -1149,32 +1308,75 @@ return;
 
 }
 
-container.innerHTML=items.map((item,index)=>`
+
+container.innerHTML=
+
+items.map((item,index)=>`
 
 <div class="item-card">
 
 <div class="number">
+
 ${String(index+1).padStart(2,"0")}
+
 </div>
 
 <h3>
+
 ${escapeHtml(item.title)}
+
 </h3>
 
 <p>
-${escapeHtml(item.description || "بدون توضیحات")}
+
+${escapeHtml(
+item.summary ||
+item.description ||
+"بدون توضیحات"
+)}
+
 </p>
+
+<div class="item-meta">
+
+<span class="badge">
+
+${escapeHtml(item.category || "عمومی")}
+
+</span>
+
+<span class="badge">
+
+${escapeHtml(item.date || "بدون تاریخ")}
+
+</span>
+
+${
+item.status==="published"
+?
+'<span class="badge published">منتشرشده</span>'
+:
+'<span class="badge draft">پیش‌نویس</span>'
+}
+
+</div>
 
 <div class="actions">
 
-<button class="btn btn-secondary"
+<button
+class="btn btn-secondary"
 onclick="editContent('${type}',${item.id})">
+
 ویرایش
+
 </button>
 
-<button class="btn btn-primary"
+<button
+class="btn btn-primary"
 onclick="deleteContent('${type}',${item.id})">
+
 حذف
+
 </button>
 
 </div>
@@ -1212,22 +1414,25 @@ function updateStats(){
 const counts={
 
 article:"articleCount",
-
 course:"courseCount",
-
 experience:"experienceCount",
-
 library:"libraryCount"
 
 };
 
 Object.keys(counts).forEach(type=>{
 
-const items=JSON.parse(
+const items=
+JSON.parse(
 localStorage.getItem("cms_"+type) || "[]"
 );
 
-document.getElementById(counts[type]).textContent=items.length;
+const element=
+document.getElementById(counts[type]);
+
+if(element){
+element.textContent=items.length;
+}
 
 });
 
@@ -1238,15 +1443,21 @@ document.getElementById(counts[type]).textContent=items.length;
 
 function deleteContent(type,id){
 
-if(!confirm("آیا از حذف این محتوا مطمئن هستید؟")) return;
+if(!confirm("آیا از حذف این محتوا مطمئن هستید؟"))
+return;
 
 const key="cms_"+type;
 
-let items=JSON.parse(localStorage.getItem(key) || "[]");
+let items=
+JSON.parse(localStorage.getItem(key) || "[]");
 
-items=items.filter(item=>item.id!==id);
+items=
+items.filter(item=>item.id!==id);
 
-localStorage.setItem(key,JSON.stringify(items));
+localStorage.setItem(
+key,
+JSON.stringify(items)
+);
 
 renderAll();
 
@@ -1259,25 +1470,47 @@ function editContent(type,id){
 
 const key="cms_"+type;
 
-const items=JSON.parse(localStorage.getItem(key) || "[]");
+const items=
+JSON.parse(localStorage.getItem(key) || "[]");
 
-const item=items.find(x=>x.id===id);
+const item=
+items.find(x=>x.id===id);
 
 if(!item) return;
 
-currentType=type;
 
-showEditor(type);
+showEditor(type,id);
 
-document.getElementById("contentTitle").value=item.title;
 
-document.getElementById("contentCategory").value=item.category;
+document.getElementById("contentTitle").value=
+item.title || "";
 
-document.getElementById("contentDate").value=item.date;
+document.getElementById("contentCategory").value=
+item.category || "general";
 
-document.getElementById("contentTag").value=item.tag;
+document.getElementById("contentDate").value=
+item.date || "";
 
-document.getElementById("contentDescription").value=item.description;
+document.getElementById("contentAuthor").value=
+item.author || "اکبر اصالتی";
+
+document.getElementById("contentTag").value=
+item.tag || "";
+
+document.getElementById("contentStatus").value=
+item.status || "draft";
+
+document.getElementById("contentSummary").value=
+item.summary || item.description || "";
+
+document.getElementById("contentBody").value=
+item.body || "";
+
+document.getElementById("contentImage").value=
+item.image || "";
+
+document.getElementById("contentPdf").value=
+item.pdf || "";
 
 }
 
@@ -1306,6 +1539,44 @@ alert("تنظیمات ذخیره شد.");
 }
 
 
+/* LOAD SETTINGS */
+
+function loadSettings(){
+
+const siteName=
+localStorage.getItem("siteName");
+
+const siteTitle=
+localStorage.getItem("siteTitle");
+
+const siteDescription=
+localStorage.getItem("siteDescription");
+
+
+if(siteName){
+
+document.getElementById("siteName").value=
+siteName;
+
+}
+
+if(siteTitle){
+
+document.getElementById("siteTitle").value=
+siteTitle;
+
+}
+
+if(siteDescription){
+
+document.getElementById("siteDescription").value=
+siteDescription;
+
+}
+
+}
+
+
 /* BACKUP */
 
 function exportData(){
@@ -1316,28 +1587,40 @@ for(let i=0;i<localStorage.length;i++){
 
 const key=localStorage.key(i);
 
-if(key.startsWith("cms_") || key.startsWith("site")){
+if(
+key.startsWith("cms_") ||
+key.startsWith("site")
+){
 
-data[key]=localStorage.getItem(key);
+data[key]=
+localStorage.getItem(key);
 
 }
 
 }
 
-const blob=new Blob(
+const blob=
+new Blob(
 [JSON.stringify(data,null,2)],
 {type:"application/json"}
 );
 
-const url=URL.createObjectURL(blob);
+const url=
+URL.createObjectURL(blob);
 
-const a=document.createElement("a");
+const a=
+document.createElement("a");
 
 a.href=url;
 
-a.download="akbar-esalati-cms-backup.json";
+a.download=
+"akbar-esalati-cms-backup.json";
+
+document.body.appendChild(a);
 
 a.click();
+
+a.remove();
 
 URL.revokeObjectURL(url);
 
@@ -1348,7 +1631,7 @@ URL.revokeObjectURL(url);
 
 function escapeHtml(text){
 
-return String(text)
+return String(text || "")
 .replace(/&/g,"&amp;")
 .replace(/</g,"&lt;")
 .replace(/>/g,"&gt;")
@@ -1359,6 +1642,8 @@ return String(text)
 
 
 /* INITIALIZE */
+
+loadSettings();
 
 renderAll();
 
