@@ -1,1 +1,1368 @@
 
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>پنل مدیریت | اکبر اصالتی</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --navy:#071a33;
+    --navy2:#0d2948;
+    --blue:#244d70;
+    --red:#c53636;
+    --red-dark:#a62d2d;
+    --bg:#f4f6f8;
+    --white:#fff;
+    --text:#172331;
+    --muted:#687687;
+    --border:#e1e6eb;
+    --green:#287a55;
+    --shadow:0 10px 30px rgba(7,26,51,.08);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:"Vazirmatn",sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.9;
+}
+
+button,
+input,
+textarea,
+select{
+    font-family:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+.layout{
+    min-height:100vh;
+    display:flex;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+    width:270px;
+    background:var(--navy);
+    color:white;
+    position:fixed;
+    right:0;
+    top:0;
+    bottom:0;
+    padding:28px 18px;
+    overflow-y:auto;
+}
+
+.brand{
+    padding:5px 12px 28px;
+    border-bottom:1px solid rgba(255,255,255,.12);
+    margin-bottom:22px;
+}
+
+.brand h1{
+    font-size:21px;
+    font-weight:800;
+}
+
+.brand p{
+    color:#9eafbf;
+    font-size:11px;
+    margin-top:3px;
+}
+
+.menu-title{
+    color:#72879b;
+    font-size:10px;
+    margin:20px 12px 8px;
+}
+
+.menu{
+    list-style:none;
+}
+
+.menu li{
+    margin-bottom:4px;
+}
+
+.menu button{
+    width:100%;
+    border:0;
+    background:transparent;
+    color:#d4dfe8;
+    text-align:right;
+    padding:11px 13px;
+    border-radius:7px;
+    font-size:12px;
+    transition:.2s;
+}
+
+.menu button:hover,
+.menu button.active{
+    background:rgba(255,255,255,.09);
+    color:white;
+}
+
+.menu button.active{
+    border-right:3px solid var(--red);
+}
+
+/* MAIN */
+
+.main{
+    width:calc(100% - 270px);
+    margin-right:270px;
+}
+
+.topbar{
+    height:76px;
+    background:white;
+    border-bottom:1px solid var(--border);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 35px;
+    position:sticky;
+    top:0;
+    z-index:20;
+}
+
+.topbar h2{
+    font-size:19px;
+    color:var(--navy);
+}
+
+.status{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    color:var(--green);
+    font-size:11px;
+}
+
+.status-dot{
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:var(--green);
+}
+
+.content{
+    padding:35px;
+    max-width:1300px;
+}
+
+/* DASHBOARD */
+
+.welcome{
+    background:linear-gradient(135deg,var(--navy),var(--navy2));
+    color:white;
+    border-radius:12px;
+    padding:32px;
+    margin-bottom:25px;
+}
+
+.welcome h2{
+    font-size:25px;
+}
+
+.welcome p{
+    color:#b9c7d3;
+    font-size:12px;
+    margin-top:5px;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+    margin-bottom:28px;
+}
+
+.stat{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:22px;
+    box-shadow:var(--shadow);
+}
+
+.stat span{
+    color:var(--muted);
+    font-size:11px;
+}
+
+.stat strong{
+    display:block;
+    color:var(--navy);
+    font-size:28px;
+    margin-top:4px;
+}
+
+/* PANELS */
+
+.panel{
+    display:none;
+}
+
+.panel.active{
+    display:block;
+}
+
+.panel-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+    margin-bottom:20px;
+}
+
+.panel-head h2{
+    color:var(--navy);
+    font-size:22px;
+}
+
+.panel-head p{
+    color:var(--muted);
+    font-size:11px;
+}
+
+/* CARDS */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.item-card{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:22px;
+    box-shadow:var(--shadow);
+}
+
+.item-card .number{
+    color:var(--red);
+    font-size:11px;
+    font-weight:800;
+}
+
+.item-card h3{
+    color:var(--navy);
+    font-size:16px;
+    margin:5px 0;
+}
+
+.item-card p{
+    color:var(--muted);
+    font-size:11px;
+}
+
+.actions{
+    display:flex;
+    gap:8px;
+    margin-top:15px;
+}
+
+/* BUTTONS */
+
+.btn{
+    border:0;
+    border-radius:6px;
+    padding:9px 17px;
+    font-size:11px;
+    font-weight:600;
+}
+
+.btn-primary{
+    background:var(--red);
+    color:white;
+}
+
+.btn-primary:hover{
+    background:var(--red-dark);
+}
+
+.btn-secondary{
+    background:#edf1f5;
+    color:var(--navy);
+}
+
+.btn-success{
+    background:var(--green);
+    color:white;
+}
+
+/* FORM */
+
+.form-box{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:28px;
+    box-shadow:var(--shadow);
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
+
+.field{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+}
+
+.field.full{
+    grid-column:1/-1;
+}
+
+.field label{
+    color:var(--navy);
+    font-size:11px;
+    font-weight:700;
+}
+
+.field input,
+.field textarea,
+.field select{
+    border:1px solid var(--border);
+    border-radius:6px;
+    padding:10px 12px;
+    font-size:12px;
+    outline:none;
+    background:#fff;
+}
+
+.field input:focus,
+.field textarea:focus,
+.field select:focus{
+    border-color:var(--blue);
+}
+
+.field textarea{
+    min-height:150px;
+    resize:vertical;
+}
+
+.form-actions{
+    display:flex;
+    gap:10px;
+    margin-top:22px;
+}
+
+/* FILES */
+
+.file-area{
+    border:2px dashed #ccd5dd;
+    border-radius:10px;
+    padding:45px 20px;
+    text-align:center;
+    background:#fafbfc;
+}
+
+.file-area strong{
+    display:block;
+    color:var(--navy);
+    margin-bottom:5px;
+}
+
+.file-area span{
+    color:var(--muted);
+    font-size:11px;
+}
+
+/* NOTICE */
+
+.notice{
+    background:#f0f5f8;
+    border-right:4px solid var(--blue);
+    padding:15px 18px;
+    border-radius:6px;
+    color:#506172;
+    font-size:11px;
+    margin-bottom:20px;
+}
+
+/* MOBILE */
+
+.mobile-menu{
+    display:none;
+}
+
+@media(max-width:900px){
+
+    .sidebar{
+        width:230px;
+    }
+
+    .main{
+        width:calc(100% - 230px);
+        margin-right:230px;
+    }
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:650px){
+
+    .sidebar{
+        position:static;
+        width:100%;
+        min-height:auto;
+    }
+
+    .layout{
+        display:block;
+    }
+
+    .main{
+        width:100%;
+        margin-right:0;
+    }
+
+    .topbar{
+        padding:0 18px;
+    }
+
+    .content{
+        padding:20px;
+    }
+
+    .stats{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+
+    .field.full{
+        grid-column:auto;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="layout">
+
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+
+<div class="brand">
+    <h1>اکبر اصالتی</h1>
+    <p>پنل مدیریت پایگاه تخصصی</p>
+</div>
+
+<div class="menu-title">مدیریت محتوا</div>
+
+<ul class="menu">
+
+<li>
+<button class="active" onclick="showPanel('dashboard',this)">
+داشبورد
+</button>
+</li>
+
+<li>
+<button onclick="showPanel('articles',this)">
+مقالات و دانش
+</button>
+</li>
+
+<li>
+<button onclick="showPanel('courses',this)">
+دوره‌های آموزشی
+</button>
+</li>
+
+<li>
+<button onclick="showPanel('experience',this)">
+سوابق آموزشی و حرفه‌ای
+</button>
+</li>
+
+<li>
+<button onclick="showPanel('library',this)">
+کتابخانه و منابع
+</button>
+</li>
+
+<li>
+<button onclick="showPanel('tools',this)">
+ابزارها و فرم‌ها
+</button>
+</li>
+
+<li>
+<button onclick="showPanel('media',this)">
+تصاویر و ویدئوها
+</button>
+</li>
+
+<li>
+<button onclick="showPanel('research',this)">
+پژوهش و پروژه‌ها
+</button>
+</li>
+
+</ul>
+
+<div class="menu-title">سیستم</div>
+
+<ul class="menu">
+
+<li>
+<button onclick="showPanel('settings',this)">
+تنظیمات
+</button>
+</li>
+
+<li>
+<button onclick="showPanel('backup',this)">
+پشتیبان‌گیری
+</button>
+</li>
+
+</ul>
+
+</aside>
+
+
+<!-- MAIN -->
+
+<main class="main">
+
+<div class="topbar">
+
+<h2 id="pageTitle">
+داشبورد
+</h2>
+
+<div class="status">
+<span class="status-dot"></span>
+سیستم مدیریت محتوا
+</div>
+
+</div>
+
+
+<div class="content">
+
+
+<!-- DASHBOARD -->
+
+<section class="panel active" id="dashboard">
+
+<div class="welcome">
+
+<h2>
+به پنل مدیریت خوش آمدید
+</h2>
+
+<p>
+مدیریت محتوای پایگاه تخصصی اکبر اصالتی
+</p>
+
+</div>
+
+<div class="stats">
+
+<div class="stat">
+<span>مقالات</span>
+<strong id="articleCount">0</strong>
+</div>
+
+<div class="stat">
+<span>دوره‌ها</span>
+<strong id="courseCount">0</strong>
+</div>
+
+<div class="stat">
+<span>تجربه‌های آموزشی</span>
+<strong id="experienceCount">0</strong>
+</div>
+
+<div class="stat">
+<span>منابع</span>
+<strong id="libraryCount">0</strong>
+</div>
+
+</div>
+
+<div class="notice">
+
+<strong>مرحله اول سیستم:</strong>
+این پنل برای مدیریت ساختاریافته محتوای سایت طراحی شده است.
+در مراحل بعدی، اتصال امن آن به مخزن GitHub و انتشار مستقیم محتوا را اضافه خواهیم کرد.
+
+</div>
+
+</section>
+
+
+<!-- ARTICLES -->
+
+<section class="panel" id="articles">
+
+<div class="panel-head">
+
+<div>
+<h2>مقالات و دانش</h2>
+<p>ایجاد و مدیریت مقالات تخصصی</p>
+</div>
+
+<button class="btn btn-primary" onclick="showEditor('article')">
++ مقاله جدید
+</button>
+
+</div>
+
+<div id="articleList" class="cards"></div>
+
+</section>
+
+
+<!-- COURSES -->
+
+<section class="panel" id="courses">
+
+<div class="panel-head">
+
+<div>
+<h2>دوره‌های آموزشی</h2>
+<p>مدیریت دوره‌ها و محتوای آموزشی</p>
+</div>
+
+<button class="btn btn-primary" onclick="showEditor('course')">
++ دوره جدید
+</button>
+
+</div>
+
+<div id="courseList" class="cards"></div>
+
+</section>
+
+
+<!-- EXPERIENCE -->
+
+<section class="panel" id="experience">
+
+<div class="panel-head">
+
+<div>
+<h2>سوابق آموزشی و حرفه‌ای</h2>
+<p>دوره‌ها، کارگاه‌ها و تجربه‌های آموزشی</p>
+</div>
+
+<button class="btn btn-primary" onclick="showEditor('experience')">
++ تجربه جدید
+</button>
+
+</div>
+
+<div id="experienceList" class="cards"></div>
+
+</section>
+
+
+<!-- LIBRARY -->
+
+<section class="panel" id="library">
+
+<div class="panel-head">
+
+<div>
+<h2>کتابخانه و منابع</h2>
+<p>PDF، PowerPoint، کتاب و استاندارد</p>
+</div>
+
+<button class="btn btn-primary" onclick="showEditor('library')">
++ منبع جدید
+</button>
+
+</div>
+
+<div class="file-area">
+
+<strong>
+مدیریت فایل‌های آموزشی
+</strong>
+
+<span>
+در مرحله بعد امکان بارگذاری و اتصال فایل‌ها به GitHub اضافه می‌شود.
+</span>
+
+</div>
+
+</section>
+
+
+<!-- TOOLS -->
+
+<section class="panel" id="tools">
+
+<div class="panel-head">
+
+<div>
+<h2>ابزارها و فرم‌ها</h2>
+<p>HIRA، JSA، JHA، HAZID، FMEA و چک‌لیست‌ها</p>
+</div>
+
+<button class="btn btn-primary" onclick="showEditor('tool')">
++ ابزار جدید
+</button>
+
+</div>
+
+<div id="toolList" class="cards"></div>
+
+</section>
+
+
+<!-- MEDIA -->
+
+<section class="panel" id="media">
+
+<div class="panel-head">
+
+<div>
+<h2>تصاویر و ویدئوها</h2>
+<p>مدیریت محتوای تصویری و ویدئویی</p>
+</div>
+
+<button class="btn btn-primary" onclick="showEditor('media')">
++ رسانه جدید
+</button>
+
+</div>
+
+<div class="file-area">
+
+<strong>
+تصاویر و ویدئوهای آموزشی
+</strong>
+
+<span>
+در مرحله بعد سیستم مدیریت رسانه را اضافه می‌کنیم.
+</span>
+
+</div>
+
+</section>
+
+
+<!-- RESEARCH -->
+
+<section class="panel" id="research">
+
+<div class="panel-head">
+
+<div>
+<h2>پژوهش و پروژه‌ها</h2>
+<p>کتاب‌ها، مقالات، پروژه‌ها و مطالعات موردی</p>
+</div>
+
+<button class="btn btn-primary" onclick="showEditor('research')">
++ پروژه جدید
+</button>
+
+</div>
+
+<div id="researchList" class="cards"></div>
+
+</section>
+
+
+<!-- SETTINGS -->
+
+<section class="panel" id="settings">
+
+<div class="panel-head">
+<div>
+<h2>تنظیمات</h2>
+<p>تنظیمات پایه پایگاه تخصصی</p>
+</div>
+</div>
+
+<div class="form-box">
+
+<div class="form-grid">
+
+<div class="field">
+<label>نام سایت</label>
+<input id="siteName" value="اکبر اصالتی">
+</div>
+
+<div class="field">
+<label>عنوان تخصصی</label>
+<input id="siteTitle" value="متخصص ایمنی، آتش‌نشانی و مدیریت بحران">
+</div>
+
+<div class="field full">
+<label>توضیحات سایت</label>
+<textarea id="siteDescription">پایگاه تخصصی آموزش، پژوهش و منابع در حوزه ایمنی، آتش‌نشانی و مدیریت بحران.</textarea>
+</div>
+
+</div>
+
+<div class="form-actions">
+<button class="btn btn-success" onclick="saveSettings()">
+ذخیره تنظیمات
+</button>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- BACKUP -->
+
+<section class="panel" id="backup">
+
+<div class="panel-head">
+
+<div>
+<h2>پشتیبان‌گیری</h2>
+<p>ذخیره نسخه پشتیبان از اطلاعات پنل</p>
+</div>
+
+</div>
+
+<div class="form-box">
+
+<div class="notice">
+اطلاعات فعلی پنل در مرورگر ذخیره می‌شود. می‌توانیم در مرحله بعد نسخه کامل پشتیبان JSON و بازیابی اطلاعات را توسعه دهیم.
+</div>
+
+<button class="btn btn-success" onclick="exportData()">
+دریافت نسخه پشتیبان
+</button>
+
+</div>
+
+</section>
+
+
+<!-- EDITOR -->
+
+<section class="panel" id="editor">
+
+<div class="panel-head">
+
+<div>
+<h2 id="editorTitle">
+ایجاد محتوای جدید
+</h2>
+
+<p>
+اطلاعات موردنظر را وارد کنید.
+</p>
+
+</div>
+
+</div>
+
+<div class="form-box">
+
+<div class="form-grid">
+
+<div class="field">
+<label>عنوان</label>
+<input id="contentTitle" placeholder="عنوان محتوا">
+</div>
+
+<div class="field">
+<label>دسته‌بندی</label>
+
+<select id="contentCategory">
+
+<option value="general">عمومی</option>
+<option value="safety">ایمنی</option>
+<option value="fire">آتش‌نشانی</option>
+<option value="crisis">مدیریت بحران</option>
+<option value="urban">ایمنی شهری</option>
+<option value="usar">جستجو و نجات شهری</option>
+<option value="risk">ارزیابی ریسک</option>
+
+</select>
+
+</div>
+
+<div class="field">
+<label>تاریخ</label>
+<input id="contentDate" type="date">
+</div>
+
+<div class="field">
+<label>برچسب</label>
+<input id="contentTag" placeholder="مثلاً مدیریت بحران">
+</div>
+
+<div class="field full">
+<label>توضیحات</label>
+<textarea id="contentDescription" placeholder="توضیحات محتوا..."></textarea>
+</div>
+
+</div>
+
+<div class="form-actions">
+
+<button class="btn btn-success" onclick="saveContent()">
+ذخیره
+</button>
+
+<button class="btn btn-secondary" onclick="cancelEditor()">
+انصراف
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+</div>
+
+</main>
+
+</div>
+
+
+<script>
+
+let currentType = null;
+
+const typeNames = {
+
+article:"مقاله",
+
+course:"دوره آموزشی",
+
+experience:"تجربه آموزشی",
+
+library:"منبع",
+
+tool:"ابزار",
+
+media:"رسانه",
+
+research:"پژوهش"
+
+};
+
+
+/* NAVIGATION */
+
+function showPanel(id,button){
+
+document.querySelectorAll(".panel").forEach(panel=>{
+panel.classList.remove("active");
+});
+
+document.getElementById(id).classList.add("active");
+
+document.querySelectorAll(".menu button").forEach(btn=>{
+btn.classList.remove("active");
+});
+
+if(button){
+button.classList.add("active");
+}
+
+const titles={
+
+dashboard:"داشبورد",
+
+articles:"مقالات و دانش",
+
+courses:"دوره‌های آموزشی",
+
+experience:"سوابق آموزشی و حرفه‌ای",
+
+library:"کتابخانه و منابع",
+
+tools:"ابزارها و فرم‌ها",
+
+media:"تصاویر و ویدئوها",
+
+research:"پژوهش و پروژه‌ها",
+
+settings:"تنظیمات",
+
+backup:"پشتیبان‌گیری"
+
+};
+
+document.getElementById("pageTitle").textContent =
+titles[id] || "مدیریت محتوا";
+
+}
+
+
+/* EDITOR */
+
+function showEditor(type){
+
+currentType=type;
+
+document.querySelectorAll(".panel").forEach(panel=>{
+panel.classList.remove("active");
+});
+
+document.getElementById("editor").classList.add("active");
+
+document.getElementById("pageTitle").textContent =
+"ایجاد "+typeNames[type];
+
+document.getElementById("editorTitle").textContent =
+"ایجاد "+typeNames[type]+" جدید";
+
+document.getElementById("contentTitle").value="";
+document.getElementById("contentDescription").value="";
+document.getElementById("contentTag").value="";
+document.getElementById("contentDate").value=
+new Date().toISOString().split("T")[0];
+
+}
+
+
+/* SAVE */
+
+function saveContent(){
+
+const title=document.getElementById("contentTitle").value.trim();
+
+if(!title){
+
+alert("لطفاً عنوان را وارد کنید.");
+
+return;
+
+}
+
+const item={
+
+id:Date.now(),
+
+title:title,
+
+category:document.getElementById("contentCategory").value,
+
+date:document.getElementById("contentDate").value,
+
+tag:document.getElementById("contentTag").value,
+
+description:document.getElementById("contentDescription").value
+
+};
+
+const key="cms_"+currentType;
+
+const items=JSON.parse(localStorage.getItem(key) || "[]");
+
+items.push(item);
+
+localStorage.setItem(key,JSON.stringify(items));
+
+alert("محتوا با موفقیت ذخیره شد.");
+
+renderAll();
+
+cancelEditor();
+
+}
+
+
+/* CANCEL */
+
+function cancelEditor(){
+
+document.getElementById("editor").classList.remove("active");
+
+document.getElementById("dashboard").classList.add("active");
+
+document.getElementById("pageTitle").textContent="داشبورد";
+
+}
+
+
+/* RENDER */
+
+function renderList(type,elementId){
+
+const key="cms_"+type;
+
+const items=JSON.parse(localStorage.getItem(key) || "[]");
+
+const container=document.getElementById(elementId);
+
+if(!container) return;
+
+if(items.length===0){
+
+container.innerHTML=`
+
+<div class="notice">
+
+هنوز محتوایی در این بخش ثبت نشده است.
+
+</div>
+
+`;
+
+return;
+
+}
+
+container.innerHTML=items.map((item,index)=>`
+
+<div class="item-card">
+
+<div class="number">
+${String(index+1).padStart(2,"0")}
+</div>
+
+<h3>
+${escapeHtml(item.title)}
+</h3>
+
+<p>
+${escapeHtml(item.description || "بدون توضیحات")}
+</p>
+
+<div class="actions">
+
+<button class="btn btn-secondary"
+onclick="editContent('${type}',${item.id})">
+ویرایش
+</button>
+
+<button class="btn btn-primary"
+onclick="deleteContent('${type}',${item.id})">
+حذف
+</button>
+
+</div>
+
+</div>
+
+`).join("");
+
+}
+
+
+/* RENDER ALL */
+
+function renderAll(){
+
+renderList("article","articleList");
+
+renderList("course","courseList");
+
+renderList("experience","experienceList");
+
+renderList("tool","toolList");
+
+renderList("research","researchList");
+
+updateStats();
+
+}
+
+
+/* STATS */
+
+function updateStats(){
+
+const counts={
+
+article:"articleCount",
+
+course:"courseCount",
+
+experience:"experienceCount",
+
+library:"libraryCount"
+
+};
+
+Object.keys(counts).forEach(type=>{
+
+const items=JSON.parse(
+localStorage.getItem("cms_"+type) || "[]"
+);
+
+document.getElementById(counts[type]).textContent=items.length;
+
+});
+
+}
+
+
+/* DELETE */
+
+function deleteContent(type,id){
+
+if(!confirm("آیا از حذف این محتوا مطمئن هستید؟")) return;
+
+const key="cms_"+type;
+
+let items=JSON.parse(localStorage.getItem(key) || "[]");
+
+items=items.filter(item=>item.id!==id);
+
+localStorage.setItem(key,JSON.stringify(items));
+
+renderAll();
+
+}
+
+
+/* EDIT */
+
+function editContent(type,id){
+
+const key="cms_"+type;
+
+const items=JSON.parse(localStorage.getItem(key) || "[]");
+
+const item=items.find(x=>x.id===id);
+
+if(!item) return;
+
+currentType=type;
+
+showEditor(type);
+
+document.getElementById("contentTitle").value=item.title;
+
+document.getElementById("contentCategory").value=item.category;
+
+document.getElementById("contentDate").value=item.date;
+
+document.getElementById("contentTag").value=item.tag;
+
+document.getElementById("contentDescription").value=item.description;
+
+}
+
+
+/* SETTINGS */
+
+function saveSettings(){
+
+localStorage.setItem(
+"siteName",
+document.getElementById("siteName").value
+);
+
+localStorage.setItem(
+"siteTitle",
+document.getElementById("siteTitle").value
+);
+
+localStorage.setItem(
+"siteDescription",
+document.getElementById("siteDescription").value
+);
+
+alert("تنظیمات ذخیره شد.");
+
+}
+
+
+/* BACKUP */
+
+function exportData(){
+
+const data={};
+
+for(let i=0;i<localStorage.length;i++){
+
+const key=localStorage.key(i);
+
+if(key.startsWith("cms_") || key.startsWith("site")){
+
+data[key]=localStorage.getItem(key);
+
+}
+
+}
+
+const blob=new Blob(
+[JSON.stringify(data,null,2)],
+{type:"application/json"}
+);
+
+const url=URL.createObjectURL(blob);
+
+const a=document.createElement("a");
+
+a.href=url;
+
+a.download="akbar-esalati-cms-backup.json";
+
+a.click();
+
+URL.revokeObjectURL(url);
+
+}
+
+
+/* SECURITY */
+
+function escapeHtml(text){
+
+return String(text)
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
+
+}
+
+
+/* INITIALIZE */
+
+renderAll();
+
+</script>
+
+</body>
+</html>
