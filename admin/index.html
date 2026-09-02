@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -8,7 +10,11 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link
+href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet"
+>
 
 <style>
 
@@ -41,7 +47,10 @@ body{
     line-height:1.9;
 }
 
-button,input,textarea,select{
+button,
+input,
+textarea,
+select{
     font-family:inherit;
 }
 
@@ -54,7 +63,9 @@ button{
     display:flex;
 }
 
-/* SIDEBAR */
+/* =========================
+   SIDEBAR
+========================= */
 
 .sidebar{
     width:270px;
@@ -121,7 +132,9 @@ button{
     border-right:3px solid var(--red);
 }
 
-/* MAIN */
+/* =========================
+   MAIN
+========================= */
 
 .main{
     width:calc(100% - 270px);
@@ -166,7 +179,39 @@ button{
     max-width:1400px;
 }
 
-/* DASHBOARD */
+/* =========================
+   PANELS
+========================= */
+
+.panel{
+    display:none;
+}
+
+.panel.active{
+    display:block;
+}
+
+.panel-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+    margin-bottom:20px;
+}
+
+.panel-head h2{
+    color:var(--navy);
+    font-size:22px;
+}
+
+.panel-head p{
+    color:var(--muted);
+    font-size:11px;
+}
+
+/* =========================
+   DASHBOARD
+========================= */
 
 .welcome{
     background:linear-gradient(135deg,var(--navy),var(--navy2));
@@ -213,35 +258,9 @@ button{
     margin-top:4px;
 }
 
-/* PANELS */
-
-.panel{
-    display:none;
-}
-
-.panel.active{
-    display:block;
-}
-
-.panel-head{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:15px;
-    margin-bottom:20px;
-}
-
-.panel-head h2{
-    color:var(--navy);
-    font-size:22px;
-}
-
-.panel-head p{
-    color:var(--muted);
-    font-size:11px;
-}
-
-/* CARDS */
+/* =========================
+   CARDS
+========================= */
 
 .cards{
     display:grid;
@@ -306,7 +325,9 @@ button{
     margin-top:15px;
 }
 
-/* BUTTONS */
+/* =========================
+   BUTTONS
+========================= */
 
 .btn{
     border:0;
@@ -335,7 +356,9 @@ button{
     color:white;
 }
 
-/* FORM */
+/* =========================
+   FORM
+========================= */
 
 .form-box{
     background:white;
@@ -399,7 +422,9 @@ button{
     margin-top:22px;
 }
 
-/* FILES */
+/* =========================
+   FILE AREA
+========================= */
 
 .file-area{
     border:2px dashed #ccd5dd;
@@ -420,7 +445,9 @@ button{
     font-size:11px;
 }
 
-/* NOTICE */
+/* =========================
+   NOTICE
+========================= */
 
 .notice{
     background:#f0f5f8;
@@ -432,7 +459,17 @@ button{
     margin-bottom:20px;
 }
 
-/* MOBILE */
+/* =========================
+   EMPTY
+========================= */
+
+.empty{
+    grid-column:1/-1;
+}
+
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:900px){
 
@@ -452,6 +489,7 @@ button{
     .cards{
         grid-template-columns:1fr;
     }
+
 }
 
 @media(max-width:650px){
@@ -490,88 +528,127 @@ button{
     .field.full{
         grid-column:auto;
     }
+
 }
 
 </style>
+
 </head>
+
 
 <body>
 
 <div class="layout">
 
+
+<!-- =========================
+     SIDEBAR
+========================= -->
+
 <aside class="sidebar">
 
 <div class="brand">
-    <h1>اکبر اصالتی</h1>
-    <p>پنل مدیریت پایگاه تخصصی</p>
+
+<h1>اکبر اصالتی</h1>
+
+<p>
+پنل مدیریت پایگاه تخصصی
+</p>
+
 </div>
 
-<div class="menu-title">مدیریت محتوا</div>
+
+<div class="menu-title">
+مدیریت محتوا
+</div>
+
 
 <ul class="menu">
 
 <li>
-<button class="active" onclick="showPanel('dashboard',this)">
+<button class="active"
+onclick="showPanel('dashboard',this)">
 داشبورد
 </button>
 </li>
 
+
 <li>
-<button onclick="showPanel('articles',this)">
+<button
+onclick="showPanel('articles',this)">
 مقالات و دانش
 </button>
 </li>
 
+
 <li>
-<button onclick="showPanel('courses',this)">
+<button
+onclick="showPanel('courses',this)">
 دوره‌های آموزشی
 </button>
 </li>
 
+
 <li>
-<button onclick="showPanel('experience',this)">
+<button
+onclick="showPanel('experience',this)">
 سوابق آموزشی و حرفه‌ای
 </button>
 </li>
 
+
 <li>
-<button onclick="showPanel('library',this)">
+<button
+onclick="showPanel('library',this)">
 کتابخانه و منابع
 </button>
 </li>
 
+
 <li>
-<button onclick="showPanel('tools',this)">
+<button
+onclick="showPanel('tools',this)">
 ابزارها و فرم‌ها
 </button>
 </li>
 
+
 <li>
-<button onclick="showPanel('media',this)">
+<button
+onclick="showPanel('media',this)">
 تصاویر و ویدئوها
 </button>
 </li>
 
+
 <li>
-<button onclick="showPanel('research',this)">
+<button
+onclick="showPanel('research',this)">
 پژوهش و پروژه‌ها
 </button>
 </li>
 
 </ul>
 
-<div class="menu-title">سیستم</div>
+
+<div class="menu-title">
+سیستم
+</div>
+
 
 <ul class="menu">
 
 <li>
-<button onclick="showPanel('settings',this)">
+<button
+onclick="showPanel('settings',this)">
 تنظیمات
 </button>
 </li>
 
+
 <li>
-<button onclick="showPanel('backup',this)">
+<button
+onclick="showPanel('backup',this)">
 پشتیبان‌گیری
 </button>
 </li>
@@ -581,7 +658,13 @@ button{
 </aside>
 
 
+
+<!-- =========================
+     MAIN
+========================= -->
+
 <main class="main">
+
 
 <div class="topbar">
 
@@ -590,19 +673,28 @@ button{
 </h2>
 
 <div class="status">
+
 <span class="status-dot"></span>
+
 سیستم مدیریت محتوا
+
 </div>
 
 </div>
+
 
 
 <div class="content">
 
 
-<!-- DASHBOARD -->
+<!-- =========================
+     DASHBOARD
+========================= -->
 
-<section class="panel active" id="dashboard">
+<section
+class="panel active"
+id="dashboard"
+>
 
 <div class="welcome">
 
@@ -616,33 +708,70 @@ button{
 
 </div>
 
+
 <div class="stats">
 
-<div class="stat">
-<span>مقالات</span>
-<strong id="articleCount">0</strong>
-</div>
 
 <div class="stat">
-<span>دوره‌ها</span>
-<strong id="courseCount">0</strong>
+
+<span>
+مقالات
+</span>
+
+<strong id="articleCount">
+0
+</strong>
+
 </div>
+
 
 <div class="stat">
-<span>تجربه‌های آموزشی</span>
-<strong id="experienceCount">0</strong>
+
+<span>
+دوره‌ها
+</span>
+
+<strong id="courseCount">
+0
+</strong>
+
 </div>
+
 
 <div class="stat">
-<span>منابع</span>
-<strong id="libraryCount">0</strong>
+
+<span>
+تجربه‌های آموزشی
+</span>
+
+<strong id="experienceCount">
+0
+</strong>
+
+</div>
+
+
+<div class="stat">
+
+<span>
+منابع
+</span>
+
+<strong id="libraryCount">
+0
+</strong>
+
 </div>
 
 </div>
+
 
 <div class="notice">
 
-<strong>وضعیت سیستم:</strong>
+<strong>
+وضعیت سیستم:
+</strong>
+
 اطلاعات فعلی پنل در مرورگر ذخیره می‌شود.
 اتصال امن به GitHub و انتشار مستقیم محتوا در مرحله بعد توسعه خواهد یافت.
 
@@ -651,88 +780,177 @@ button{
 </section>
 
 
-<!-- ARTICLES -->
 
-<section class="panel" id="articles">
+<!-- =========================
+     ARTICLES
+========================= -->
+
+<section
+class="panel"
+id="articles"
+>
 
 <div class="panel-head">
 
 <div>
-<h2>مقالات و دانش</h2>
-<p>ایجاد و مدیریت مقالات تخصصی</p>
+
+<h2>
+مقالات و دانش
+</h2>
+
+<p>
+ایجاد و مدیریت مقالات تخصصی
+</p>
+
 </div>
 
-<button class="btn btn-primary" onclick="showEditor('article')">
+
+<button
+class="btn btn-primary"
+onclick="showEditor('article')"
+>
+
 + مقاله جدید
+
 </button>
 
 </div>
 
-<div id="articleList" class="cards"></div>
+
+<div
+id="articleList"
+class="cards">
+</div>
 
 </section>
 
 
-<!-- COURSES -->
 
-<section class="panel" id="courses">
+<!-- =========================
+     COURSES
+========================= -->
+
+<section
+class="panel"
+id="courses"
+>
 
 <div class="panel-head">
 
 <div>
-<h2>دوره‌های آموزشی</h2>
-<p>مدیریت دوره‌ها و محتوای آموزشی</p>
+
+<h2>
+دوره‌های آموزشی
+</h2>
+
+<p>
+مدیریت دوره‌ها و محتوای آموزشی
+</p>
+
 </div>
 
-<button class="btn btn-primary" onclick="showEditor('course')">
+
+<button
+class="btn btn-primary"
+onclick="showEditor('course')"
+>
+
 + دوره جدید
+
 </button>
 
 </div>
 
-<div id="courseList" class="cards"></div>
+
+<div
+id="courseList"
+class="cards">
+</div>
 
 </section>
 
 
-<!-- EXPERIENCE -->
 
-<section class="panel" id="experience">
+<!-- =========================
+     EXPERIENCE
+========================= -->
+
+<section
+class="panel"
+id="experience"
+>
 
 <div class="panel-head">
 
 <div>
-<h2>سوابق آموزشی و حرفه‌ای</h2>
-<p>دوره‌ها، کارگاه‌ها و تجربه‌های آموزشی</p>
+
+<h2>
+سوابق آموزشی و حرفه‌ای
+</h2>
+
+<p>
+دوره‌ها، کارگاه‌ها و تجربه‌های آموزشی
+</p>
+
 </div>
 
-<button class="btn btn-primary" onclick="showEditor('experience')">
+
+<button
+class="btn btn-primary"
+onclick="showEditor('experience')"
+>
+
 + تجربه جدید
+
 </button>
 
 </div>
 
-<div id="experienceList" class="cards"></div>
+
+<div
+id="experienceList"
+class="cards">
+</div>
 
 </section>
 
 
-<!-- LIBRARY -->
 
-<section class="panel" id="library">
+<!-- =========================
+     LIBRARY
+========================= -->
+
+<section
+class="panel"
+id="library"
+>
 
 <div class="panel-head">
 
 <div>
-<h2>کتابخانه و منابع</h2>
-<p>PDF، PowerPoint، کتاب و استاندارد</p>
+
+<h2>
+کتابخانه و منابع
+</h2>
+
+<p>
+PDF، PowerPoint، کتاب و استاندارد
+</p>
+
 </div>
 
-<button class="btn btn-primary" onclick="showEditor('library')">
+
+<button
+class="btn btn-primary"
+onclick="showEditor('library')"
+>
+
 + منبع جدید
+
 </button>
 
 </div>
+
 
 <div class="file-area">
 
@@ -749,44 +967,87 @@ button{
 </section>
 
 
-<!-- TOOLS -->
 
-<section class="panel" id="tools">
+<!-- =========================
+     TOOLS
+========================= -->
+
+<section
+class="panel"
+id="tools"
+>
 
 <div class="panel-head">
 
 <div>
-<h2>ابزارها و فرم‌ها</h2>
-<p>HIRA، JSA، JHA، HAZID، FMEA و چک‌لیست‌ها</p>
+
+<h2>
+ابزارها و فرم‌ها
+</h2>
+
+<p>
+HIRA، JSA، JHA، HAZID، FMEA و چک‌لیست‌ها
+</p>
+
 </div>
 
-<button class="btn btn-primary" onclick="showEditor('tool')">
+
+<button
+class="btn btn-primary"
+onclick="showEditor('tool')"
+>
+
 + ابزار جدید
+
 </button>
 
 </div>
 
-<div id="toolList" class="cards"></div>
+
+<div
+id="toolList"
+class="cards">
+</div>
 
 </section>
 
 
-<!-- MEDIA -->
 
-<section class="panel" id="media">
+<!-- =========================
+     MEDIA
+========================= -->
+
+<section
+class="panel"
+id="media"
+>
 
 <div class="panel-head">
 
 <div>
-<h2>تصاویر و ویدئوها</h2>
-<p>مدیریت محتوای تصویری و ویدئویی</p>
+
+<h2>
+تصاویر و ویدئوها
+</h2>
+
+<p>
+مدیریت محتوای تصویری و ویدئویی
+</p>
+
 </div>
 
-<button class="btn btn-primary" onclick="showEditor('media')">
+
+<button
+class="btn btn-primary"
+onclick="showEditor('media')"
+>
+
 + رسانه جدید
+
 </button>
 
 </div>
+
 
 <div class="file-area">
 
@@ -803,66 +1064,136 @@ button{
 </section>
 
 
-<!-- RESEARCH -->
 
-<section class="panel" id="research">
+<!-- =========================
+     RESEARCH
+========================= -->
+
+<section
+class="panel"
+id="research"
+>
 
 <div class="panel-head">
 
 <div>
-<h2>پژوهش و پروژه‌ها</h2>
-<p>کتاب‌ها، مقالات، پروژه‌ها و مطالعات موردی</p>
+
+<h2>
+پژوهش و پروژه‌ها
+</h2>
+
+<p>
+کتاب‌ها، مقالات، پروژه‌ها و مطالعات موردی
+</p>
+
 </div>
 
-<button class="btn btn-primary" onclick="showEditor('research')">
+
+<button
+class="btn btn-primary"
+onclick="showEditor('research')"
+>
+
 + پروژه جدید
+
 </button>
 
 </div>
 
-<div id="researchList" class="cards"></div>
+
+<div
+id="researchList"
+class="cards">
+</div>
 
 </section>
 
 
-<!-- SETTINGS -->
 
-<section class="panel" id="settings">
+<!-- =========================
+     SETTINGS
+========================= -->
+
+<section
+class="panel"
+id="settings"
+>
 
 <div class="panel-head">
 
 <div>
-<h2>تنظیمات</h2>
-<p>تنظیمات پایه پایگاه تخصصی</p>
+
+<h2>
+تنظیمات
+</h2>
+
+<p>
+تنظیمات پایه پایگاه تخصصی
+</p>
+
 </div>
 
 </div>
+
 
 <div class="form-box">
 
 <div class="form-grid">
 
-<div class="field">
-<label>نام سایت</label>
-<input id="siteName" value="اکبر اصالتی">
-</div>
 
 <div class="field">
-<label>عنوان تخصصی</label>
-<input id="siteTitle" value="متخصص ایمنی، آتش‌نشانی و مدیریت بحران">
+
+<label>
+نام سایت
+</label>
+
+<input
+id="siteName"
+value="اکبر اصالتی"
+>
+
 </div>
+
+
+<div class="field">
+
+<label>
+عنوان تخصصی
+</label>
+
+<input
+id="siteTitle"
+value="متخصص ایمنی، آتش‌نشانی و مدیریت بحران"
+>
+
+</div>
+
 
 <div class="field full">
-<label>توضیحات سایت</label>
-<textarea id="siteDescription">پایگاه تخصصی آموزش، پژوهش و منابع در حوزه ایمنی، آتش‌نشانی و مدیریت بحران.</textarea>
-</div>
+
+<label>
+توضیحات سایت
+</label>
+
+<textarea
+id="siteDescription"
+>پایگاه تخصصی آموزش، پژوهش و منابع در حوزه ایمنی، آتش‌نشانی و مدیریت بحران.</textarea>
 
 </div>
+
+
+</div>
+
 
 <div class="form-actions">
 
-<button class="btn btn-success" onclick="saveSettings()">
+<button
+class="btn btn-success"
+onclick="saveSettings()"
+>
+
 ذخیره تنظیمات
+
 </button>
 
 </div>
@@ -872,27 +1203,49 @@ button{
 </section>
 
 
-<!-- BACKUP -->
 
-<section class="panel" id="backup">
+<!-- =========================
+     BACKUP
+========================= -->
+
+<section
+class="panel"
+id="backup"
+>
 
 <div class="panel-head">
 
 <div>
-<h2>پشتیبان‌گیری</h2>
-<p>ذخیره نسخه پشتیبان از اطلاعات پنل</p>
+
+<h2>
+پشتیبان‌گیری
+</h2>
+
+<p>
+ذخیره نسخه پشتیبان از اطلاعات پنل
+</p>
+
 </div>
 
 </div>
+
 
 <div class="form-box">
 
 <div class="notice">
+
 نسخه پشتیبان شامل اطلاعات ذخیره‌شده در پنل خواهد بود.
+
 </div>
 
-<button class="btn btn-success" onclick="exportData()">
+
+<button
+class="btn btn-success"
+onclick="exportData()"
+>
+
 دریافت نسخه پشتیبان
+
 </button>
 
 </div>
@@ -900,9 +1253,15 @@ button{
 </section>
 
 
-<!-- EDITOR -->
 
-<section class="panel" id="editor">
+<!-- =========================
+     EDITOR
+========================= -->
+
+<section
+class="panel"
+id="editor"
+>
 
 <div class="panel-head">
 
@@ -920,95 +1279,225 @@ button{
 
 </div>
 
+
 <div class="form-box">
+
 
 <div class="form-grid">
 
+
 <div class="field full">
-<label>عنوان</label>
-<input id="contentTitle" placeholder="عنوان محتوا">
+
+<label>
+عنوان
+</label>
+
+<input
+id="contentTitle"
+placeholder="عنوان محتوا"
+>
+
 </div>
 
+
+
 <div class="field">
-<label>دسته‌بندی</label>
+
+<label>
+دسته‌بندی
+</label>
+
 
 <select id="contentCategory">
 
-<option value="general">عمومی</option>
-<option value="safety">ایمنی</option>
-<option value="fire">آتش‌نشانی</option>
-<option value="crisis">مدیریت بحران</option>
-<option value="urban">ایمنی شهری</option>
-<option value="usar">جستجو و نجات شهری</option>
-<option value="risk">ارزیابی ریسک</option>
+<option value="general">
+عمومی
+</option>
+
+<option value="safety">
+ایمنی
+</option>
+
+<option value="fire">
+آتش‌نشانی
+</option>
+
+<option value="crisis">
+مدیریت بحران
+</option>
+
+<option value="urban">
+ایمنی شهری
+</option>
+
+<option value="usar">
+جستجو و نجات شهری
+</option>
+
+<option value="risk">
+ارزیابی ریسک
+</option>
 
 </select>
 
 </div>
 
-<div class="field">
-<label>تاریخ انتشار</label>
-<input id="contentDate" type="date">
-</div>
+
 
 <div class="field">
-<label>نویسنده</label>
-<input id="contentAuthor" value="اکبر اصالتی">
+
+<label>
+تاریخ انتشار
+</label>
+
+<input
+id="contentDate"
+type="date"
+>
+
 </div>
 
-<div class="field">
-<label>برچسب‌ها</label>
-<input id="contentTag" placeholder="مثلاً مدیریت بحران، ایمنی">
-</div>
+
 
 <div class="field">
-<label>وضعیت انتشار</label>
+
+<label>
+نویسنده
+</label>
+
+<input
+id="contentAuthor"
+value="اکبر اصالتی"
+>
+
+</div>
+
+
+
+<div class="field">
+
+<label>
+برچسب‌ها
+</label>
+
+<input
+id="contentTag"
+placeholder="مثلاً مدیریت بحران، ایمنی"
+>
+
+</div>
+
+
+
+<div class="field">
+
+<label>
+وضعیت انتشار
+</label>
+
 
 <select id="contentStatus">
 
-<option value="draft">پیش‌نویس</option>
-<option value="published">منتشرشده</option>
+<option value="draft">
+پیش‌نویس
+</option>
+
+<option value="published">
+منتشرشده
+</option>
 
 </select>
 
 </div>
 
-<div class="field full">
-<label>خلاصه مقاله</label>
-<textarea id="contentSummary"
-placeholder="خلاصه کوتاه و حرفه‌ای مقاله..."></textarea>
-</div>
+
 
 <div class="field full">
-<label>متن کامل مقاله</label>
-<textarea id="contentBody"
+
+<label>
+خلاصه مقاله
+</label>
+
+<textarea
+id="contentSummary"
+placeholder="خلاصه کوتاه و حرفه‌ای مقاله..."
+></textarea>
+
+</div>
+
+
+
+<div class="field full">
+
+<label>
+متن کامل مقاله
+</label>
+
+<textarea
+id="contentBody"
 class="article-body"
-placeholder="متن کامل مقاله را اینجا وارد کنید..."></textarea>
+placeholder="متن کامل مقاله را اینجا وارد کنید..."
+></textarea>
+
 </div>
+
+
 
 <div class="field full">
-<label>آدرس تصویر شاخص</label>
-<input id="contentImage"
-placeholder="در مرحله بعد امکان بارگذاری مستقیم تصویر اضافه می‌شود.">
+
+<label>
+آدرس تصویر شاخص
+</label>
+
+<input
+id="contentImage"
+placeholder="در مرحله بعد امکان بارگذاری مستقیم تصویر اضافه می‌شود."
+>
+
 </div>
+
+
 
 <div class="field full">
-<label>آدرس فایل PDF</label>
-<input id="contentPdf"
-placeholder="در مرحله بعد امکان اتصال فایل PDF اضافه می‌شود.">
-</div>
+
+<label>
+آدرس فایل PDF
+</label>
+
+<input
+id="contentPdf"
+placeholder="در مرحله بعد امکان اتصال فایل PDF اضافه می‌شود."
+>
 
 </div>
+
+
+</div>
+
+
 
 <div class="form-actions">
 
-<button class="btn btn-success" onclick="saveContent()">
+
+<button
+class="btn btn-success"
+onclick="saveContent()"
+>
+
 ذخیره محتوا
+
 </button>
 
-<button class="btn btn-secondary" onclick="cancelEditor()">
+
+<button
+class="btn btn-secondary"
+onclick="cancelEditor()"
+>
+
 انصراف
+
 </button>
+
 
 </div>
 
@@ -1024,624 +1513,1013 @@ placeholder="در مرحله بعد امکان اتصال فایل PDF اضاف�
 </div>
 
 
+
 <script>
+
+/* =========================================================
+   GLOBAL VARIABLES
+========================================================= */
 
 let currentType = null;
 let editingId = null;
-let previousPanel = "dashboard";
 
+
+/* =========================================================
+   TYPE NAMES
+========================================================= */
 
 const typeNames = {
 
-article:"مقاله",
-course:"دوره آموزشی",
-experience:"تجربه آموزشی",
-library:"منبع",
-tool:"ابزار",
-media:"رسانه",
-research:"پژوهش"
+    article:"مقاله",
+    course:"دوره آموزشی",
+    experience:"تجربه آموزشی",
+    library:"منبع",
+    tool:"ابزار",
+    media:"رسانه",
+    research:"پژوهش"
 
 };
 
 
-/* NAVIGATION */
+/* =========================================================
+   PANEL TITLES
+========================================================= */
 
-function showPanel(id,button){
+const panelTitles = {
 
-document.querySelectorAll(".panel").forEach(panel=>{
-panel.classList.remove("active");
-});
-
-const panel=document.getElementById(id);
-
-if(panel){
-panel.classList.add("active");
-}
-
-document.querySelectorAll(".menu button").forEach(btn=>{
-btn.classList.remove("active");
-});
-
-if(button){
-button.classList.add("active");
-}
-
-const titles={
-
-dashboard:"داشبورد",
-articles:"مقالات و دانش",
-courses:"دوره‌های آموزشی",
-experience:"سوابق آموزشی و حرفه‌ای",
-library:"کتابخانه و منابع",
-tools:"ابزارها و فرم‌ها",
-media:"تصاویر و ویدئوها",
-research:"پژوهش و پروژه‌ها",
-settings:"تنظیمات",
-backup:"پشتیبان‌گیری"
+    dashboard:"داشبورد",
+    articles:"مقالات و دانش",
+    courses:"دوره‌های آموزشی",
+    experience:"سوابق آموزشی و حرفه‌ای",
+    library:"کتابخانه و منابع",
+    tools:"ابزارها و فرم‌ها",
+    media:"تصاویر و ویدئوها",
+    research:"پژوهش و پروژه‌ها",
+    settings:"تنظیمات",
+    backup:"پشتیبان‌گیری"
 
 };
 
-document.getElementById("pageTitle").textContent =
-titles[id] || "مدیریت محتوا";
+
+/* =========================================================
+   SHOW PANEL
+========================================================= */
+
+function showPanel(id,button=null){
+
+    document.querySelectorAll(".panel").forEach(panel=>{
+        panel.classList.remove("active");
+    });
+
+
+    const panel = document.getElementById(id);
+
+    if(panel){
+        panel.classList.add("active");
+    }
+
+
+    document.querySelectorAll(".menu button").forEach(btn=>{
+        btn.classList.remove("active");
+    });
+
+
+    if(button){
+        button.classList.add("active");
+    }
+
+
+    document.getElementById("pageTitle").textContent =
+        panelTitles[id] || "مدیریت محتوا";
 
 }
 
 
-/* EDITOR */
-
-function showEditor(type,id=null){
-
-currentType=type;
-editingId=id;
-
-previousPanel =
-type==="article" ? "articles" :
-type==="course" ? "courses" :
-type==="experience" ? "experience" :
-type==="library" ? "library" :
-type==="tool" ? "tools" :
-type==="media" ? "media" :
-type==="research" ? "research" :
-"dashboard";
-
-document.querySelectorAll(".panel").forEach(panel=>{
-panel.classList.remove("active");
-});
-
-document.getElementById("editor").classList.add("active");
-
-document.getElementById("pageTitle").textContent =
-id ? "ویرایش "+typeNames[type] : "ایجاد "+typeNames[type];
-
-document.getElementById("editorTitle").textContent =
-id ? "ویرایش "+typeNames[type] : "ایجاد "+typeNames[type]+" جدید";
-
-if(!id){
-
-document.getElementById("contentTitle").value="";
-document.getElementById("contentDescription").value="";
-document.getElementById("contentSummary").value="";
-document.getElementById("contentBody").value="";
-document.getElementById("contentTag").value="";
-document.getElementById("contentImage").value="";
-document.getElementById("contentPdf").value="";
-document.getElementById("contentAuthor").value="اکبر اصالتی";
-document.getElementById("contentStatus").value="draft";
-document.getElementById("contentCategory").value="general";
-
-document.getElementById("contentDate").value=
-new Date().toISOString().split("T")[0];
-
-}
-
-}
-
-
-/* SAVE */
-
-function saveContent(){
-
-const title=
-document.getElementById("contentTitle").value.trim();
-
-if(!title){
-
-alert("لطفاً عنوان را وارد کنید.");
-return;
-
-}
-
-const item={
-
-id:editingId || Date.now(),
-
-title:title,
-
-category:
-document.getElementById("contentCategory").value,
-
-date:
-document.getElementById("contentDate").value,
-
-author:
-document.getElementById("contentAuthor").value.trim(),
-
-tag:
-document.getElementById("contentTag").value.trim(),
-
-status:
-document.getElementById("contentStatus").value,
-
-summary:
-document.getElementById("contentSummary").value.trim(),
-
-body:
-document.getElementById("contentBody").value,
-
-image:
-document.getElementById("contentImage").value.trim(),
-
-pdf:
-document.getElementById("contentPdf").value.trim(),
-
-description:
-document.getElementById("contentSummary").value.trim(),
-
-updatedAt:
-new Date().toISOString()
-
-};
-
-const key="cms_"+currentType;
-
-let items=
-JSON.parse(localStorage.getItem(key) || "[]");
-
-
-if(editingId){
-
-const index=
-items.findIndex(x=>x.id===editingId);
-
-if(index!==-1){
-
-items[index]=item;
-
-}
-
-}else{
-
-items.push(item);
-
-}
-
-
-localStorage.setItem(
-key,
-JSON.stringify(items)
-);
-
-
-alert(
-editingId
-? "محتوا با موفقیت ویرایش شد."
-: "محتوا با موفقیت ذخیره شد."
-);
-
-
-editingId=null;
-
-renderAll();
-
-openContentPanel(currentType);
-
-}
-
-
-/* RETURN TO CORRECT PANEL */
+/* =========================================================
+   OPEN CONTENT PANEL
+========================================================= */
 
 function openContentPanel(type){
 
-const map={
+    const map = {
 
-article:"articles",
-course:"courses",
-experience:"experience",
-library:"library",
-tool:"tools",
-media:"media",
-research:"research"
+        article:"articles",
+        course:"courses",
+        experience:"experience",
+        library:"library",
+        tool:"tools",
+        media:"media",
+        research:"research"
 
-};
-
-const id=map[type] || "dashboard";
-
-const button=
-document.querySelector(
-'.menu button[onclick*="' + id + '"]'
-);
-
-showPanel(id,button);
-
-}
+    };
 
 
-/* CANCEL */
+    const panelId = map[type] || "dashboard";
 
-function cancelEditor(){
 
-editingId=null;
+    const button =
+        document.querySelector(
+            '.menu button[onclick*="' + panelId + '"]'
+        );
 
-openContentPanel(currentType || "article");
+
+    showPanel(panelId,button);
 
 }
 
 
-/* RENDER */
+/* =========================================================
+   SHOW EDITOR
+========================================================= */
 
-function renderList(type,elementId){
+function showEditor(type,id=null){
 
-const key="cms_"+type;
+    currentType = type;
 
-const items=
-JSON.parse(localStorage.getItem(key) || "[]");
+    /*
+       مهم:
+       شناسه هنگام ویرایش همیشه به String تبدیل می‌شود.
+       این کار مشکل تفاوت عدد و متن را برطرف می‌کند.
+    */
 
-const container=
-document.getElementById(elementId);
-
-if(!container) return;
-
-
-if(items.length===0){
-
-container.innerHTML=`
-
-<div class="notice">
-
-هنوز محتوایی در این بخش ثبت نشده است.
-
-</div>
-
-`;
-
-return;
-
-}
+    editingId =
+        id !== null
+        ? String(id)
+        : null;
 
 
-container.innerHTML=
+    document.querySelectorAll(".panel").forEach(panel=>{
+        panel.classList.remove("active");
+    });
 
-items.map((item,index)=>`
 
-<div class="item-card">
+    document.getElementById("editor").classList.add("active");
 
-<div class="number">
 
-${String(index+1).padStart(2,"0")}
+    document.getElementById("pageTitle").textContent =
+        id !== null
+        ? "ویرایش " + typeNames[type]
+        : "ایجاد " + typeNames[type];
 
-</div>
 
-<h3>
+    document.getElementById("editorTitle").textContent =
+        id !== null
+        ? "ویرایش " + typeNames[type]
+        : "ایجاد " + typeNames[type] + " جدید";
 
-${escapeHtml(item.title)}
 
-</h3>
+    /*
+       فقط هنگام ایجاد محتوای جدید فرم پاک می‌شود.
+       هنگام ویرایش، اطلاعات موجود دست‌نخورده می‌ماند.
+    */
 
-<p>
+    if(id === null){
 
-${escapeHtml(
-item.summary ||
-item.description ||
-"بدون توضیحات"
-)}
+        document.getElementById("contentTitle").value = "";
 
-</p>
+        document.getElementById("contentCategory").value =
+            "general";
 
-<div class="item-meta">
+        document.getElementById("contentDate").value =
+            new Date().toISOString().split("T")[0];
 
-<span class="badge">
+        document.getElementById("contentAuthor").value =
+            "اکبر اصالتی";
 
-${escapeHtml(item.category || "عمومی")}
+        document.getElementById("contentTag").value = "";
 
-</span>
+        document.getElementById("contentStatus").value =
+            "draft";
 
-<span class="badge">
+        document.getElementById("contentSummary").value = "";
 
-${escapeHtml(item.date || "بدون تاریخ")}
+        document.getElementById("contentBody").value = "";
 
-</span>
+        document.getElementById("contentImage").value = "";
 
-${
-item.status==="published"
-?
-'<span class="badge published">منتشرشده</span>'
-:
-'<span class="badge draft">پیش‌نویس</span>'
-}
+        document.getElementById("contentPdf").value = "";
 
-</div>
-
-<div class="actions">
-
-<button
-class="btn btn-secondary"
-onclick="editContent('${type}',${item.id})">
-
-ویرایش
-
-</button>
-
-<button
-class="btn btn-primary"
-onclick="deleteContent('${type}',${item.id})">
-
-حذف
-
-</button>
-
-</div>
-
-</div>
-
-`).join("");
+    }
 
 }
 
 
-/* RENDER ALL */
+/* =========================================================
+   SAVE CONTENT
+========================================================= */
 
-function renderAll(){
+function saveContent(){
 
-renderList("article","articleList");
+    const title =
+        document
+        .getElementById("contentTitle")
+        .value
+        .trim();
 
-renderList("course","courseList");
 
-renderList("experience","experienceList");
+    if(!title){
 
-renderList("tool","toolList");
+        alert("لطفاً عنوان را وارد کنید.");
 
-renderList("research","researchList");
+        return;
 
-updateStats();
+    }
+
+
+    if(!currentType){
+
+        alert("نوع محتوا مشخص نیست.");
+
+        return;
+
+    }
+
+
+    const key =
+        "cms_" + currentType;
+
+
+    let items =
+        JSON.parse(
+            localStorage.getItem(key) || "[]"
+        );
+
+
+    /*
+       اگر در حالت ویرایش هستیم،
+       همان شناسه قبلی حفظ می‌شود.
+    */
+
+    const item = {
+
+        id:
+            editingId !== null
+            ? editingId
+            : String(Date.now()),
+
+
+        title:title,
+
+
+        category:
+            document
+            .getElementById("contentCategory")
+            .value,
+
+
+        date:
+            document
+            .getElementById("contentDate")
+            .value,
+
+
+        author:
+            document
+            .getElementById("contentAuthor")
+            .value
+            .trim(),
+
+
+        tag:
+            document
+            .getElementById("contentTag")
+            .value
+            .trim(),
+
+
+        status:
+            document
+            .getElementById("contentStatus")
+            .value,
+
+
+        summary:
+            document
+            .getElementById("contentSummary")
+            .value
+            .trim(),
+
+
+        body:
+            document
+            .getElementById("contentBody")
+            .value,
+
+
+        image:
+            document
+            .getElementById("contentImage")
+            .value
+            .trim(),
+
+
+        pdf:
+            document
+            .getElementById("contentPdf")
+            .value
+            .trim(),
+
+
+        description:
+            document
+            .getElementById("contentSummary")
+            .value
+            .trim(),
+
+
+        updatedAt:
+            new Date().toISOString()
+
+    };
+
+
+    /* =====================================================
+       EDIT MODE
+    ===================================================== */
+
+    if(editingId !== null){
+
+        const index =
+            items.findIndex(
+                x =>
+                String(x.id) === String(editingId)
+            );
+
+
+        if(index === -1){
+
+            alert(
+                "محتوای موردنظر برای ویرایش پیدا نشد."
+            );
+
+            return;
+
+        }
+
+
+        /*
+           جایگزینی همان رکورد
+        */
+
+        items[index] = item;
+
+    }
+
+
+    /* =====================================================
+       NEW CONTENT MODE
+    ===================================================== */
+
+    else{
+
+        items.push(item);
+
+    }
+
+
+    /*
+       ذخیره اطلاعات
+    */
+
+    localStorage.setItem(
+        key,
+        JSON.stringify(items)
+    );
+
+
+    /*
+       پیام مناسب
+    */
+
+    if(editingId !== null){
+
+        alert(
+            "محتوا با موفقیت ویرایش شد."
+        );
+
+    }else{
+
+        alert(
+            "محتوا با موفقیت ذخیره شد."
+        );
+
+    }
+
+
+    /*
+       بازنشانی حالت ویرایش
+    */
+
+    editingId = null;
+
+
+    /*
+       بازسازی فهرست‌ها
+    */
+
+    renderAll();
+
+
+    /*
+       بازگشت به بخش مربوطه
+    */
+
+    openContentPanel(currentType);
 
 }
 
 
-/* STATS */
-
-function updateStats(){
-
-const counts={
-
-article:"articleCount",
-course:"courseCount",
-experience:"experienceCount",
-library:"libraryCount"
-
-};
-
-Object.keys(counts).forEach(type=>{
-
-const items=
-JSON.parse(
-localStorage.getItem("cms_"+type) || "[]"
-);
-
-const element=
-document.getElementById(counts[type]);
-
-if(element){
-element.textContent=items.length;
-}
-
-});
-
-}
-
-
-/* DELETE */
-
-function deleteContent(type,id){
-
-if(!confirm("آیا از حذف این محتوا مطمئن هستید؟"))
-return;
-
-const key="cms_"+type;
-
-let items=
-JSON.parse(localStorage.getItem(key) || "[]");
-
-items=
-items.filter(item=>item.id!==id);
-
-localStorage.setItem(
-key,
-JSON.stringify(items)
-);
-
-renderAll();
-
-}
-
-
-/* EDIT */
+/* =========================================================
+   EDIT CONTENT
+========================================================= */
 
 function editContent(type,id){
 
-const key="cms_"+type;
-
-const items=
-JSON.parse(localStorage.getItem(key) || "[]");
-
-const item=
-items.find(x=>x.id===id);
-
-if(!item) return;
+    const key =
+        "cms_" + type;
 
 
-showEditor(type,id);
+    const items =
+        JSON.parse(
+            localStorage.getItem(key) || "[]"
+        );
 
 
-document.getElementById("contentTitle").value=
-item.title || "";
+    /*
+       مقایسه شناسه‌ها به صورت String
+    */
 
-document.getElementById("contentCategory").value=
-item.category || "general";
+    const item =
+        items.find(
+            x =>
+            String(x.id) === String(id)
+        );
 
-document.getElementById("contentDate").value=
-item.date || "";
 
-document.getElementById("contentAuthor").value=
-item.author || "اکبر اصالتی";
+    if(!item){
 
-document.getElementById("contentTag").value=
-item.tag || "";
+        alert(
+            "محتوای موردنظر پیدا نشد."
+        );
 
-document.getElementById("contentStatus").value=
-item.status || "draft";
+        return;
 
-document.getElementById("contentSummary").value=
-item.summary || item.description || "";
+    }
 
-document.getElementById("contentBody").value=
-item.body || "";
 
-document.getElementById("contentImage").value=
-item.image || "";
+    /*
+       ورود به حالت ویرایش
+    */
 
-document.getElementById("contentPdf").value=
-item.pdf || "";
+    showEditor(
+        type,
+        String(item.id)
+    );
+
+
+    /*
+       پر کردن فرم
+    */
+
+    document.getElementById("contentTitle").value =
+        item.title || "";
+
+
+    document.getElementById("contentCategory").value =
+        item.category || "general";
+
+
+    document.getElementById("contentDate").value =
+        item.date || "";
+
+
+    document.getElementById("contentAuthor").value =
+        item.author || "اکبر اصالتی";
+
+
+    document.getElementById("contentTag").value =
+        item.tag || "";
+
+
+    document.getElementById("contentStatus").value =
+        item.status || "draft";
+
+
+    document.getElementById("contentSummary").value =
+        item.summary ||
+        item.description ||
+        "";
+
+
+    document.getElementById("contentBody").value =
+        item.body || "";
+
+
+    document.getElementById("contentImage").value =
+        item.image || "";
+
+
+    document.getElementById("contentPdf").value =
+        item.pdf || "";
 
 }
 
 
-/* SETTINGS */
+/* =========================================================
+   CANCEL EDITOR
+========================================================= */
+
+function cancelEditor(){
+
+    const type =
+        currentType || "article";
+
+
+    editingId = null;
+
+
+    openContentPanel(type);
+
+}
+
+
+/* =========================================================
+   RENDER LIST
+========================================================= */
+
+function renderList(type,elementId){
+
+    const key =
+        "cms_" + type;
+
+
+    const items =
+        JSON.parse(
+            localStorage.getItem(key) || "[]"
+        );
+
+
+    const container =
+        document.getElementById(elementId);
+
+
+    if(!container){
+        return;
+    }
+
+
+    if(items.length === 0){
+
+        container.innerHTML = `
+
+            <div class="notice empty">
+
+                هنوز محتوایی در این بخش ثبت نشده است.
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    container.innerHTML =
+
+        items.map((item,index)=>`
+
+            <div class="item-card">
+
+                <div class="number">
+
+                    ${String(index+1).padStart(2,"0")}
+
+                </div>
+
+
+                <h3>
+
+                    ${escapeHtml(item.title)}
+
+                </h3>
+
+
+                <p>
+
+                    ${escapeHtml(
+                        item.summary ||
+                        item.description ||
+                        "بدون توضیحات"
+                    )}
+
+                </p>
+
+
+                <div class="item-meta">
+
+
+                    <span class="badge">
+
+                        ${escapeHtml(
+                            item.category || "عمومی"
+                        )}
+
+                    </span>
+
+
+                    <span class="badge">
+
+                        ${escapeHtml(
+                            item.date || "بدون تاریخ"
+                        )}
+
+                    </span>
+
+
+                    ${
+                        item.status === "published"
+
+                        ?
+
+                        '<span class="badge published">منتشرشده</span>'
+
+                        :
+
+                        '<span class="badge draft">پیش‌نویس</span>'
+                    }
+
+
+                </div>
+
+
+                <div class="actions">
+
+
+                    <button
+                    class="btn btn-secondary"
+                    onclick="editContent('${type}','${String(item.id)}')"
+                    >
+
+                    ویرایش
+
+                    </button>
+
+
+                    <button
+                    class="btn btn-primary"
+                    onclick="deleteContent('${type}','${String(item.id)}')"
+                    >
+
+                    حذف
+
+                    </button>
+
+
+                </div>
+
+            </div>
+
+        `).join("");
+
+}
+
+
+/* =========================================================
+   RENDER ALL
+========================================================= */
+
+function renderAll(){
+
+    renderList(
+        "article",
+        "articleList"
+    );
+
+
+    renderList(
+        "course",
+        "courseList"
+    );
+
+
+    renderList(
+        "experience",
+        "experienceList"
+    );
+
+
+    renderList(
+        "tool",
+        "toolList"
+    );
+
+
+    renderList(
+        "research",
+        "researchList"
+    );
+
+
+    updateStats();
+
+}
+
+
+/* =========================================================
+   UPDATE STATS
+========================================================= */
+
+function updateStats(){
+
+    const counts = {
+
+        article:"articleCount",
+        course:"courseCount",
+        experience:"experienceCount",
+        library:"libraryCount"
+
+    };
+
+
+    Object.keys(counts).forEach(type=>{
+
+        const items =
+            JSON.parse(
+                localStorage.getItem(
+                    "cms_" + type
+                ) || "[]"
+            );
+
+
+        const element =
+            document.getElementById(
+                counts[type]
+            );
+
+
+        if(element){
+
+            element.textContent =
+                items.length;
+
+        }
+
+    });
+
+}
+
+
+/* =========================================================
+   DELETE CONTENT
+========================================================= */
+
+function deleteContent(type,id){
+
+    if(
+        !confirm(
+            "آیا از حذف این محتوا مطمئن هستید؟"
+        )
+    ){
+
+        return;
+
+    }
+
+
+    const key =
+        "cms_" + type;
+
+
+    let items =
+        JSON.parse(
+            localStorage.getItem(key) || "[]"
+        );
+
+
+    items =
+        items.filter(
+            item =>
+            String(item.id) !== String(id)
+        );
+
+
+    localStorage.setItem(
+        key,
+        JSON.stringify(items)
+    );
+
+
+    renderAll();
+
+}
+
+
+/* =========================================================
+   SETTINGS
+========================================================= */
 
 function saveSettings(){
 
-localStorage.setItem(
-"siteName",
-document.getElementById("siteName").value
-);
+    localStorage.setItem(
+        "siteName",
+        document
+        .getElementById("siteName")
+        .value
+    );
 
-localStorage.setItem(
-"siteTitle",
-document.getElementById("siteTitle").value
-);
 
-localStorage.setItem(
-"siteDescription",
-document.getElementById("siteDescription").value
-);
+    localStorage.setItem(
+        "siteTitle",
+        document
+        .getElementById("siteTitle")
+        .value
+    );
 
-alert("تنظیمات ذخیره شد.");
+
+    localStorage.setItem(
+        "siteDescription",
+        document
+        .getElementById("siteDescription")
+        .value
+    );
+
+
+    alert(
+        "تنظیمات ذخیره شد."
+    );
 
 }
 
 
-/* LOAD SETTINGS */
+/* =========================================================
+   LOAD SETTINGS
+========================================================= */
 
 function loadSettings(){
 
-const siteName=
-localStorage.getItem("siteName");
-
-const siteTitle=
-localStorage.getItem("siteTitle");
-
-const siteDescription=
-localStorage.getItem("siteDescription");
+    const siteName =
+        localStorage.getItem(
+            "siteName"
+        );
 
 
-if(siteName){
+    const siteTitle =
+        localStorage.getItem(
+            "siteTitle"
+        );
 
-document.getElementById("siteName").value=
-siteName;
+
+    const siteDescription =
+        localStorage.getItem(
+            "siteDescription"
+        );
+
+
+    if(siteName){
+
+        document.getElementById(
+            "siteName"
+        ).value = siteName;
+
+    }
+
+
+    if(siteTitle){
+
+        document.getElementById(
+            "siteTitle"
+        ).value = siteTitle;
+
+    }
+
+
+    if(siteDescription){
+
+        document.getElementById(
+            "siteDescription"
+        ).value = siteDescription;
+
+    }
 
 }
 
-if(siteTitle){
 
-document.getElementById("siteTitle").value=
-siteTitle;
-
-}
-
-if(siteDescription){
-
-document.getElementById("siteDescription").value=
-siteDescription;
-
-}
-
-}
-
-
-/* BACKUP */
+/* =========================================================
+   BACKUP
+========================================================= */
 
 function exportData(){
 
-const data={};
+    const data = {};
 
-for(let i=0;i<localStorage.length;i++){
 
-const key=localStorage.key(i);
+    for(
+        let i=0;
+        i<localStorage.length;
+        i++
+    ){
 
-if(
-key.startsWith("cms_") ||
-key.startsWith("site")
-){
+        const key =
+            localStorage.key(i);
 
-data[key]=
-localStorage.getItem(key);
+
+        if(
+            key.startsWith("cms_") ||
+            key.startsWith("site")
+        ){
+
+            data[key] =
+                localStorage.getItem(key);
+
+        }
+
+    }
+
+
+    const blob =
+        new Blob(
+            [
+                JSON.stringify(
+                    data,
+                    null,
+                    2
+                )
+            ],
+            {
+                type:"application/json"
+            }
+        );
+
+
+    const url =
+        URL.createObjectURL(blob);
+
+
+    const a =
+        document.createElement("a");
+
+
+    a.href = url;
+
+
+    a.download =
+        "akbar-esalati-cms-backup.json";
+
+
+    document.body.appendChild(a);
+
+
+    a.click();
+
+
+    a.remove();
+
+
+    URL.revokeObjectURL(url);
 
 }
 
-}
 
-const blob=
-new Blob(
-[JSON.stringify(data,null,2)],
-{type:"application/json"}
-);
-
-const url=
-URL.createObjectURL(blob);
-
-const a=
-document.createElement("a");
-
-a.href=url;
-
-a.download=
-"akbar-esalati-cms-backup.json";
-
-document.body.appendChild(a);
-
-a.click();
-
-a.remove();
-
-URL.revokeObjectURL(url);
-
-}
-
-
-/* SECURITY */
+/* =========================================================
+   ESCAPE HTML
+========================================================= */
 
 function escapeHtml(text){
 
-return String(text || "")
-.replace(/&/g,"&amp;")
-.replace(/</g,"&lt;")
-.replace(/>/g,"&gt;")
-.replace(/"/g,"&quot;")
-.replace(/'/g,"&#039;");
+    return String(text || "")
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
 
 }
 
 
-/* INITIALIZE */
+/* =========================================================
+   INITIALIZE
+========================================================= */
 
 loadSettings();
 
@@ -1650,4 +2528,5 @@ renderAll();
 </script>
 
 </body>
+
 </html>
