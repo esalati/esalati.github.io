@@ -4,7 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>اکبر اصالتی | ایمنی، آتش‌نشانی و مدیریت بحران</title>
-<meta name="description" content="پایگاه تخصصی آموزش، پژوهش و منابع ایمنی، آتش‌نشانی و مدیریت بحران.">
+<meta name="description" content="پایگاه تخصصی اکبر اصالتی در حوزه ایمنی، آتش‌نشانی، مدیریت بحران، جست‌وجو و نجات، آموزش، پژوهش و منابع حرفه‌ای.">
+<meta name="author" content="اکبر اصالتی">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#071a33">
+<meta property="og:type" content="website">
+<meta property="og:title" content="اکبر اصالتی | ایمنی، آتش‌نشانی و مدیریت بحران">
+<meta property="og:description" content="آموزش، پژوهش، منابع و تجربه حرفه‌ای در حوزه ایمنی، آتش‌نشانی و مدیریت بحران.">
+<meta property="og:locale" content="fa_IR">
+<link rel="canonical" href="/" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -27,7 +35,7 @@
 <section class="section alt" id="contact"><div class="container"><div class="contact-box"><h2>ارتباط حرفه‌ای</h2><p>اطلاعات تماس و راه‌های ارتباطی در این بخش قرار خواهد گرفت.</p></div></div></section>
 <footer><strong>اکبر اصالتی</strong><br>ایمنی • آتش‌نشانی • مدیریت بحران • آموزش تخصصی<br><br>© 2026 Akbar Esalati</footer>
 <script>
-(async()=>{const $=id=>document.getElementById(id);const esc=v=>String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));const visible=a=>(Array.isArray(a)?a:[]).filter(x=>x&&x.status!=='draft');const empty=(text)=>'<div class="empty">'+text+'</div>';const render=(id,items,fn,msg)=>{const a=visible(items);$(id).innerHTML=a.length?a.slice(0,30).map(fn).join(''):empty(msg)};try{const r=await fetch('/admin/data/data/content.json?'+Date.now(),{cache:'no-store'});if(!r.ok)throw Error('content unavailable');const d=await r.json();const s=d.settings||{};if(s.siteTitle)document.title=s.siteTitle;if(s.description){const m=document.querySelector('meta[name="description"]');if(m)m.content=s.description}if(s.hero){if(s.hero.title)$('hero-title').textContent=s.hero.title;if(s.hero.subtitle)$('hero-subtitle').textContent=s.hero.subtitle;if(s.hero.description)$('hero-description').textContent=s.hero.description}
+(async()=>{const $=id=>document.getElementById(id);const esc=v=>String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));const visible=a=>(Array.isArray(a)?a:[]).filter(x=>x&&x.status!=='draft');const empty=(text)=>'<div class="empty">'+text+'</div>';const render=(id,items,fn,msg)=>{const a=visible(items);$(id).innerHTML=a.length?a.slice(0,30).map(fn).join(''):empty(msg)};try{const r=await fetch('/api/content?'+Date.now(),{cache:'no-store'});if(!r.ok)throw Error('content unavailable');const payload=await r.json();const d=payload.content||payload;const s=d.settings||{};if(s.siteTitle)document.title=s.siteTitle;if(s.description){const m=document.querySelector('meta[name="description"]');if(m)m.content=s.description;const og=document.querySelector('meta[property="og:description"]');if(og)og.content=s.description}if(s.hero){if(s.hero.title)$('hero-title').textContent=s.hero.title;if(s.hero.subtitle)$('hero-subtitle').textContent=s.hero.subtitle;if(s.hero.description)$('hero-description').textContent=s.hero.description}
 render('courses-grid',d.courses,x=>'<article class="card"><span class="tag">'+esc(x.category||x.level||'دوره آموزشی')+'</span><h3>'+esc(x.title||'دوره آموزشی')+'</h3><p>'+esc(x.summary||x.body||'')+'</p>'+(x.file?'<a class="more" target="_blank" rel="noopener" href="'+esc(x.file)+'">جزئیات ←</a>':'')+'</article>','هنوز دوره آموزشی منتشر نشده است.');
 render('articles-grid',d.articles,x=>'<article class="card"><h3>'+esc(x.title||'مقاله')+'</h3><p>'+esc(x.summary||x.body||'')+'</p>'+(x.file?'<a class="more" target="_blank" rel="noopener" href="'+esc(x.file)+'">ادامه ←</a>':'')+'</article>','هنوز مقاله‌ای منتشر نشده است.');
 render('library-grid',d.library,x=>'<article class="card"><span class="tag">'+esc(x.type||x.category||'منبع')+'</span><h3>'+esc(x.title||'منبع آموزشی')+'</h3><p>'+esc(x.summary||'')+'</p>'+(x.file?'<a class="more" target="_blank" rel="noopener" href="'+esc(x.file)+'">دریافت ←</a>':'')+'</article>','هنوز منبعی در کتابخانه منتشر نشده است.');
