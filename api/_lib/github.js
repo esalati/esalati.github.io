@@ -2,7 +2,7 @@ const OWNER=process.env.GITHUB_OWNER||"esalati";
 const REPO=process.env.GITHUB_REPO||"esalati.github.io";
 const BRANCH=process.env.CMS_BRANCH||"cms-v2";
 const API="https://api.github.com";
-function headers(token){return{"Accept":"application/vnd.github+json","Authorization":"Bearer "+token,"X-GitHub-Api-Version":"2022-11-28","User-Agent":"esalati-cms"}}
+function headers(token){const h={"Accept":"application/vnd.github+json","X-GitHub-Api-Version":"2022-11-28","User-Agent":"esalati-cms"};if(token)h.Authorization="Bearer "+token;return h}
 async function gh(path,token,options={}){const r=await fetch(API+path,{...options,headers:{...headers(token),...(options.headers||{})}});const d=await r.json().catch(()=>({}));if(!r.ok)throw new Error(d.message||("GitHub API error "+r.status));return d}
 export async function user(token){return gh("/user",token,{})}
 export async function getFile(path,token){return gh("/repos/"+OWNER+"/"+REPO+"/contents/"+path+"?ref="+encodeURIComponent(BRANCH),token,{})}
