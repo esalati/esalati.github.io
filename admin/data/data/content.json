@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-09-23T11:19:08.634Z",
+  "updatedAt": "2026-09-23T12:41:20.849Z",
   "settings": {
     "siteTitle": "اکبر اصالتی | ایمنی، آتش‌نشانی و مدیریت بحران",
     "description": "وب‌سایت تخصصی اکبر اصالتی؛ آموزش، پژوهش و منابع تخصصی در حوزه ایمنی، آتش‌نشانی و مدیریت بحران.",
@@ -13,113 +13,11 @@
       "description": "ارائه دانش، تجربه و آموزش‌های تخصصی با تمرکز بر پیوند میان دانش علمی و کاربرد عملی."
     }
   },
-  "articles": [
-    {
-      "status": "published",
-      "title": "مقاله آزمایشی CMS- ویرایش دوم",
-      "category": "آزمایشی",
-      "date": "2026-09-23",
-      "author": "اکبر اصالتی",
-      "tags": "تست، CMS",
-      "summary": "این یک محتوای آزمایشی برای بررسی عملکرد CMS است.",
-      "body": "",
-      "image": "",
-      "file": "",
-      "id": "d3af566f-d34b-48ec-b66b-a4f1452c29a4",
-      "updatedAt": "2026-09-23T10:55:31.344Z",
-      "createdAt": "2026-09-23T10:52:17.810Z"
-    }
-  ],
-  "courses": [
-    {
-      "status": "draft",
-      "title": "علت یابی حریق- ویرایش دوم",
-      "category": "آزمایشی",
-      "level": "حرفه ای",
-      "duration": "48ساعت",
-      "summary": "این یک متن ازمایشی است",
-      "body": "",
-      "image": "",
-      "file": "",
-      "id": "9b20e581-0294-4aa9-bbb0-1b961448b8b8",
-      "updatedAt": "2026-09-23T11:12:43.526Z",
-      "createdAt": "2026-09-23T11:12:25.990Z"
-    }
-  ],
-  "experiences": [
-    {
-      "status": "draft",
-      "title": "گاز گرفتگی- مرگ خاموش",
-      "organization": "بهزیستی",
-      "date": "2026-09-23",
-      "summary": "این متن ازمایشی است.",
-      "body": "",
-      "image": "",
-      "file": "",
-      "id": "f042afb2-47d8-4d19-931f-17afafcf0bf8",
-      "updatedAt": "2026-09-23T11:14:29.981Z",
-      "createdAt": "2026-09-23T11:14:12.221Z"
-    }
-  ],
-  "library": [
-    {
-      "status": "draft",
-      "title": "مدیریت و فرماندهی در حریق و حوادث- عملیاتی",
-      "type": "استاندارد",
-      "category": "آزمایشی",
-      "author": "اکبر اصالتی",
-      "date": "2026-09-23",
-      "summary": "این متن ازمایشی است",
-      "file": "",
-      "image": "",
-      "id": "3a23bb7f-c9cc-4ddd-b63d-7d2b4058c26f",
-      "updatedAt": "2026-09-23T11:16:12.244Z",
-      "createdAt": "2026-09-23T11:15:51.780Z"
-    }
-  ],
-  "tools": [
-    {
-      "status": "draft",
-      "title": "گاز سنج- ---",
-      "category": "آزمایشی",
-      "summary": "این متن ازمایشی است",
-      "body": "",
-      "file": "",
-      "id": "15aac6d1-3b0e-48f6-9d06-84f5b48e34f3",
-      "updatedAt": "2026-09-23T11:16:54.212Z",
-      "createdAt": "2026-09-23T11:16:41.852Z"
-    }
-  ],
-  "media": [
-    {
-      "id": "d2125135-0f1c-405e-9535-41b78057f9de",
-      "name": "9bc207337cf510be489b9884a12358fa42476057-480p.mp4",
-      "path": "uploads/9bc207337cf510be489b9884a12358fa42476057-480p.mp4",
-      "size": 1116868,
-      "mime": "video/mp4",
-      "createdAt": "2026-09-23T11:19:04.233Z"
-    },
-    {
-      "id": "f95fa00e-3c31-48f3-a4ee-ce53632dcaf0",
-      "name": "9bc207337cf510be489b9884a12358fa42476057-480p.mp4",
-      "path": "uploads/9bc207337cf510be489b9884a12358fa42476057-480p.mp4",
-      "size": 1116868,
-      "mime": "video/mp4",
-      "createdAt": "2026-09-23T11:19:08.634Z"
-    }
-  ],
-  "research": [
-    {
-      "status": "draft",
-      "title": "مقاله آزمایشی CMS- ویرایش دوم",
-      "type": "استاندارد",
-      "date": "2026-09-23",
-      "summary": "این متن ازمایشی است",
-      "body": "",
-      "file": "",
-      "id": "07a3be76-6d31-4d42-93a3-d1d9b070f292",
-      "updatedAt": "2026-09-23T11:17:43.459Z",
-      "createdAt": "2026-09-23T11:17:33.227Z"
-    }
-  ]
+  "articles": [],
+  "courses": [],
+  "experiences": [],
+  "library": [],
+  "tools": [],
+  "media": [],
+  "research": []
 }
