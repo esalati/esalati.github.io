@@ -1,1 +1,12 @@
-import {getSession} from "./_lib/auth.js";import {getContent,putFile} from "./_lib/github.js";const fallback={version:2,updatedAt:null,settings:{siteTitle:"اکبر اصالتی | ایمنی، آتش‌نشانی و مدیریت بحران",description:"وب‌سایت تخصصی اکبر اصالتی",email:"",phone:"",social:{},hero:{title:"اکبر اصالتی",subtitle:"متخصص ایمنی، آتش‌نشانی و مدیریت بحران",description:""}},articles:[],courses:[],experiences:[],library:[],tools:[],media:[],research:[]};export default async function handler(req,res){try{if(req.method==="GET"){const s=getSession(req);const d=await getContent(s?.token||process.env.GITHUB_READ_TOKEN);return res.status(200).json({content:d.content||fallback,branch:process.env.CMS_BRANCH||"cms-v2"})}const s=getSession(req);if(!s?.token)return res.status(401).json({error:"احراز هویت لازم است"});const incoming=req.body?.content;if(!incoming||typeof incoming!=="object")return res.status(400).json({error:"محتوای نامعتبر"});const d=await getContent(s.token);const result=await putFile("admin/data/data/content.json",JSON.stringify(incoming,null,2)+"\n",s.token,req.body.message||"Update CMS content",d.sha);res.json({ok:true,sha:result.content?.sha||null})}catch(e){res.status(e.status||500).json({error:String(e.message||e)})}}
+import {getSession} from "./_lib/auth.js";import {getContent,putFile} from "./_lib/github.js";
+const fallback={version:2,updatedAt:null,settings:{siteTitle:"اکبر اصالتی | ایمنی، آتش‌نشانی و مدیریت بحران",description:"وب‌سایت تخصصی اکبر اصالتی",email:"",phone:"",social:{},hero:{title:"اکبر اصالتی",subtitle:"متخصص ایمنی، آتش‌نشانی و مدیریت بحران",description:""}},articles:[],courses:[],experiences:[],library:[],tools:[],media:[],research:[]};
+export default async function handler(req,res){try{
+if(req.method==="GET"){const s=getSession(req);const d=await getContent(s?.token||process.env.GITHUB_READ_TOKEN);return res.status(200).json({content:d.content||fallback,branch:process.env.CMS_BRANCH||"cms-v2"})}
+const s=getSession(req);if(!s?.token)return res.status(401).json({error:"احراز هویت لازم است"});
+const incoming=req.body?.content;if(!incoming||typeof incoming!=="object")return res.status(400).json({error:"محتوای نامعتبر"});
+const d=await getContent(s.token);
+const result=await putFile("admin/data/data/content.json",JSON.stringify(incoming,null,2)+"\n",s.token,req.body.message||"Update CMS content",d.sha,"cms-v2");
+const pub=await getContent(s.token,"gh-pages");
+await putFile("admin/data/data/content.json",JSON.stringify(incoming,null,2)+"\n",s.token,"Sync public content",pub.sha,"gh-pages");
+res.json({ok:true,sha:result.content?.sha||null,publicSync:true})
+}catch(e){res.status(e.status||500).json({error:String(e.message||e)})}}
