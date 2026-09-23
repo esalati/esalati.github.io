@@ -695,6 +695,7 @@ footer strong{
 <ul>
 <li><a href="#home">خانه</a></li>
 <li><a href="#education">آموزش</a></li>
+<li><a href="#articles">مقالات</a></li>
 <li><a href="#knowledge">دانش</a></li>
 <li><a href="#library">کتابخانه</a></li>
 <li><a href="#experience">تجربه آموزشی</a></li>
@@ -1369,7 +1370,7 @@ cards(".experience-grid",d.experiences,x=>'<div class="experience-card"><div cla
 cards(".library-grid",d.library,x=>'<div class="library-card"><h3>'+esc(x.title)+'</h3><p>'+esc(x.summary||x.type||x.category)+'</p>'+(x.file?'<a class="more" href="'+esc(x.file)+'">دریافت ←</a>':"")+"</div>");
 cards(".tools-grid",d.tools,x=>'<div class="tool"><strong>'+esc(x.title)+'</strong><span>'+esc(x.summary||x.category)+'</span></div>');
 cards(".research-grid",d.research,x=>'<div class="research-card"><h3>'+esc(x.title)+'</h3><p>'+esc(x.summary||x.body)+'</p>'+(x.file?'<a class="more" href="'+esc(x.file)+'">مشاهده ←</a>':"")+"</div>");
-if(d.articles?.some(x=>x.status!=="draft")){let sec=q("#knowledge");const a=document.createElement("section");a.className="section";a.id="articles";a.innerHTML='<div class="container"><div class="section-head"><h2 class="section-title">آخرین مقالات</h2><p class="section-subtitle">مطالب و دانش تخصصی</p></div><div class="research-grid">'+d.articles.filter(x=>x.status!=="draft").slice(0,6).map(x=>'<div class="research-card"><h3>'+esc(x.title)+'</h3><p>'+esc(x.summary)+'</p>'+(x.file?'<a class="more" href="'+esc(x.file)+'">ادامه ←</a>':"")+"</div>").join("")+"</div></div>";sec?.parentNode.insertBefore(a,sec.nextSibling)}
+if(d.articles?.some(x=>x.status!=="draft")){let sec=q("#knowledge");const a=document.createElement("section");a.className="section";a.id="articles";a.innerHTML='<div class="container"><div class="section-head"><h2 class="section-title">مقالات</h2><p class="section-subtitle">مطالب و دانش تخصصی</p></div><div class="research-grid">'+d.articles.filter(x=>x.status!=="draft").slice(0,6).map(x=>'<div class="research-card"><h3>'+esc(x.title)+'</h3><p>'+esc(x.summary)+'</p>'+(x.file?'<a class="more" href="'+esc(x.file)+'">ادامه ←</a>':"")+"</div>").join("")+"</div></div>";sec?.parentNode.insertBefore(a,sec.nextSibling)}
 }catch(e){console.warn("CMS content unavailable",e)}})();
 </script></body>
 </html>
