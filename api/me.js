@@ -1,0 +1,1 @@
+import {getSession} from "./_lib/auth.js";export default function handler(req,res){const s=getSession(req);if(!s)return res.status(401).json({error:"unauthorized"});res.json({user:{login:s.login,name:s.name}})}
