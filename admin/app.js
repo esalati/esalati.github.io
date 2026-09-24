@@ -2,6 +2,8 @@ const state={user:null,content:null,section:"dashboard",editing:null};const labe
   const input=document.getElementById("picker_"+fieldId);
   if(!input?.files?.[0])return toast("فایل را انتخاب کنید");
   const file=input.files[0];
+  const selected=document.getElementById("selected_"+fieldId);
+  if(selected)selected.textContent=file.name;
   if(file.size>2*1024*1024*1024)return toast("حداکثر حجم این نسخه 2GB است");
   try{
     toast("در حال آماده‌سازی آپلود...");
