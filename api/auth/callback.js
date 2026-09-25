@@ -13,7 +13,7 @@ function verifyState(state){
 }
 function appBase(req){
   const env=process.env.VERCEL_ENV||"";
-  if(env==="preview")return ("https://"+req.headers.host).replace(/\/$/,"");
+  if(env==="preview")return "https://esalati-cms-git-cms-v2-13521352.vercel.app";
   return (process.env.APP_URL||("https://"+req.headers.host)).replace(/\/$/,"");
 }
 export default async function handler(req,res){
