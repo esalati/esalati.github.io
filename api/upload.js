@@ -5,8 +5,7 @@ export default async function handler(req,res){
     if(req.method==="GET"){
       return res.status(200).json({
         ok:true,
-        blobConfigured:true,
-        authentication:"oidc",
+        blobConfigured:Boolean(process.env.BLOB_READ_WRITE_TOKEN),
         environment:process.env.VERCEL_ENV||"unknown"
       });
     }
@@ -22,6 +21,7 @@ export default async function handler(req,res){
     const result=await handleUpload({
       body,
       request:req,
+      token:process.env.BLOB_READ_WRITE_TOKEN,
       onBeforeGenerateToken:async(pathname)=>{
         const clean=String(pathname||"").replace(/^\/+/, "");
         if(!/^uploads\/[a-zA-Z0-9._\/-]+$/.test(clean))throw new Error("مسیر فایل نامعتبر است");
