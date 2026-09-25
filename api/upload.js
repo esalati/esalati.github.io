@@ -1,23 +1,27 @@
 import {getSession} from "./_lib/auth.js";
-import {handleUpload} from "@vercel/blob/client";
 
 export default async function handler(req,res){
-  const s=getSession(req);
-  if(!s?.token)return res.status(401).json({error:"احراز هویت لازم است"});
-  const blobToken=process.env.BLOB_READ_WRITE_TOKEN;
-  if(req.method==="GET"){
-    return res.status(200).json({
-      ok:true,
-      authenticated:true,
-      blobConfigured:Boolean(blobToken),
-      environment:process.env.VERCEL_ENV||"unknown"
-    });
-  }
-  if(req.method!=="POST")return res.status(405).end();
   try{
+    const s=getSession(req);
+    if(!s?.token)return res.status(401).json({error:"احراز هویت لازم است"});
+    const blobToken=process.env.BLOB_READ_WRITE_TOKEN;
+
+    if(req.method==="GET"){
+      return res.status(200).json({
+        ok:true,
+        authenticated:true,
+        blobConfigured:Boolean(blobToken),
+        environment:process.env.VERCEL_ENV||"unknown"
+      });
+    }
+
+    if(req.method!=="POST")return res.status(405).end();
     if(!blobToken)throw new Error("BLOB_READ_WRITE_TOKEN در Vercel تنظیم نشده است.");
+
     const body=req.body;
     if(!body||typeof body!=="object")throw new Error("بدنه درخواست آپلود نامعتبر است.");
+
+    const {handleUpload}=await import("@vercel/blob/client");
     const result=await handleUpload({
       body,
       request:req,
@@ -46,6 +50,6 @@ export default async function handler(req,res){
     return res.status(200).json(result);
   }catch(e){
     console.error("Blob upload handler error:",e);
-    return res.status(400).json({error:String(e.message||e)});
+    return res.status(500).json({error:String(e.message||e)});
   }
 }
