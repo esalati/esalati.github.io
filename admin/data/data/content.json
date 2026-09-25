@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-09-25T08:47:47.608Z",
+  "updatedAt": "2026-09-25T08:54:36.685Z",
   "settings": {
     "siteTitle": "اکبر اصالتی | ایمنی، آتش‌نشانی و مدیریت بحران",
     "description": "وب‌سایت تخصصی اکبر اصالتی؛ آموزش، پژوهش و منابع تخصصی در حوزه ایمنی، آتش‌نشانی و مدیریت بحران.",
@@ -34,6 +34,16 @@
   "experiences": [],
   "library": [],
   "tools": [],
-  "media": [],
+  "media": [
+    {
+      "id": "0cddb74e-fb44-4dc1-9fdb-8b463fa5793f",
+      "name": "سؤال ۱.docx",
+      "path": "https://vfqmetngyugfrafh.public.blob.vercel-storage.com/uploads/1790326473726--------kJPmYx1i0NXaPnU4RnAekI4wjLkt1C.docx",
+      "size": 24730,
+      "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "url": "https://vfqmetngyugfrafh.public.blob.vercel-storage.com/uploads/1790326473726--------kJPmYx1i0NXaPnU4RnAekI4wjLkt1C.docx",
+      "createdAt": "2026-09-25T08:54:36.683Z"
+    }
+  ],
   "research": []
 }
