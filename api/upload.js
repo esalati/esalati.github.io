@@ -6,7 +6,10 @@ export default async function handler(req,res){
   if(!s?.token)return res.status(401).json({error:"احراز هویت لازم است"});
   if(req.method!=="POST")return res.status(405).end();
   try{
-    const body=await req.json();
+    // Vercel's Node.js function runtime parses the JSON request body into req.body.
+    // handleUpload expects the parsed HandleUploadBody object.
+    const body=req.body;
+    if(!body||typeof body!=="object")return res.status(400).json({error:"بدنه درخواست آپلود نامعتبر است"});
     const result=await handleUpload({
       body,
       request:req,
@@ -23,6 +26,7 @@ export default async function handler(req,res){
     });
     return res.status(200).json(result);
   }catch(e){
+    console.error("Blob upload handler error:",e);
     return res.status(400).json({error:String(e.message||e)});
   }
 }
