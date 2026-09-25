@@ -1,1 +1,14 @@
-import crypto from "node:crypto";export default async function handler(req,res){const client=process.env.GITHUB_CLIENT_ID;if(!client)return res.status(500).json({error:"GITHUB_CLIENT_ID در Vercel ثبت نشده است."});const base=(process.env.APP_URL||("https://"+req.headers.host)).replace(/\/$/,"");const state=crypto.randomBytes(24).toString("hex");res.setHeader("Set-Cookie","cms_oauth_state="+state+"; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=600");const p=new URLSearchParams({client_id:client,redirect_uri:base+"/api/auth/callback",scope:"public_repo",state});res.redirect("https://github.com/login/oauth/authorize?"+p.toString())}
+import crypto from "node:crypto";
+function secret(){return process.env.SESSION_SECRET||"CHANGE_ME_IN_VERCEL_ENV";}
+function sign(value){return crypto.createHmac("sha256",secret()).update(value).digest("base64url");}
+function makeState(payload){const body=Buffer.from(JSON.stringify(payload)).toString("base64url");return body+"."+sign(body)}
+export default async function handler(req,res){
+  const client=process.env.GITHUB_CLIENT_ID;
+  if(!client)return res.status(500).json({error:"GITHUB_CLIENT_ID در Vercel ثبت نشده است."});
+  const base=(process.env.APP_URL||("https://"+req.headers.host)).replace(/\/$/,"");
+  const redirectUri=base+"/api/auth/callback";
+  const now=Math.floor(Date.now()/1000);
+  const state=makeState({iat:now,exp:now+600,redirectUri});
+  const p=new URLSearchParams({client_id:client,redirect_uri:redirectUri,scope:"public_repo",state});
+  res.redirect("https://github.com/login/oauth/authorize?"+p.toString());
+}
