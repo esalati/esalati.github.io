@@ -2,21 +2,18 @@ import {getSession} from "./_lib/auth.js";
 
 export default async function handler(req,res){
   try{
-    const blobToken=process.env.BLOB_READ_WRITE_TOKEN;
-
     if(req.method==="GET"){
       return res.status(200).json({
         ok:true,
-        blobConfigured:Boolean(blobToken),
+        blobConfigured:true,
+        authentication:"oidc",
         environment:process.env.VERCEL_ENV||"unknown"
       });
     }
 
     const s=getSession(req);
     if(!s?.token)return res.status(401).json({error:"احراز هویت لازم است"});
-
     if(req.method!=="POST")return res.status(405).end();
-    if(!blobToken)throw new Error("BLOB_READ_WRITE_TOKEN در Vercel تنظیم نشده است.");
 
     const body=req.body;
     if(!body||typeof body!=="object")throw new Error("بدنه درخواست آپلود نامعتبر است.");
@@ -25,7 +22,6 @@ export default async function handler(req,res){
     const result=await handleUpload({
       body,
       request:req,
-      token:blobToken,
       onBeforeGenerateToken:async(pathname)=>{
         const clean=String(pathname||"").replace(/^\/+/, "");
         if(!/^uploads\/[a-zA-Z0-9._\/-]+$/.test(clean))throw new Error("مسیر فایل نامعتبر است");
