@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 900" role="img" aria-label="صحنه عملیات آتش نشانی و آتش سوزی در پس زمینه">
+<defs>
+  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#071525"/><stop offset="1" stop-color="#1b2732"/></linearGradient>
+  <linearGradient id="glow" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffb12b"/><stop offset=".45" stop-color="#e84b20"/><stop offset="1" stop-color="#8e1717"/></linearGradient>
+  <linearGradient id="smoke" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#25323b" stop-opacity=".9"/><stop offset="1" stop-color="#0a1118" stop-opacity=".15"/></linearGradient>
+  <filter id="blur"><feGaussianBlur stdDeviation="18"/></filter>
+</defs>
+<rect width="1920" height="900" fill="url(#sky)"/>
+<circle cx="1280" cy="510" r="260" fill="#e84320" opacity=".18" filter="url(#blur)"/>
+<path d="M1160 270 C1050 175 1140 85 1270 55 C1380 30 1480 105 1515 205 C1545 300 1490 360 1370 345 C1280 335 1220 320 1160 270Z" fill="url(#smoke)"/>
+<path d="M1330 190 C1260 105 1390 30 1510 100 C1595 150 1620 245 1540 300 C1460 355 1370 310 1330 190Z" fill="#111b23" opacity=".72"/>
+<rect x="980" y="250" width="610" height="540" rx="4" fill="#111a22"/>
+<rect x="1030" y="305" width="510" height="485" fill="#17222c"/>
+<g fill="#273746">
+  <rect x="1060" y="340" width="85" height="105"/><rect x="1175" y="340" width="85" height="105"/><rect x="1290" y="340" width="85" height="105"/><rect x="1405" y="340" width="85" height="105"/>
+  <rect x="1060" y="480" width="85" height="105"/><rect x="1175" y="480" width="85" height="105"/><rect x="1290" y="480" width="85" height="105"/><rect x="1405" y="480" width="85" height="105"/>
+</g>
+<g fill="#ff9d28">
+  <rect x="1175" y="480" width="85" height="105"/><rect x="1290" y="340" width="85" height="105"/><rect x="1405" y="480" width="85" height="105"/>
+</g>
+<g fill="url(#glow)">
+  <path d="M1120 585 C1080 510 1150 465 1190 400 C1215 475 1265 505 1230 585 C1205 640 1145 640 1120 585Z"/>
+  <path d="M1260 650 C1205 555 1290 505 1330 430 C1360 525 1410 565 1370 650 C1340 710 1290 705 1260 650Z"/>
+  <path d="M1410 625 C1370 555 1430 510 1470 455 C1490 525 1535 555 1500 625 C1475 675 1435 670 1410 625Z"/>
+</g>
+<g fill="#f6d07a" opacity=".9">
+  <path d="M1155 570 C1145 525 1180 500 1190 475 C1210 525 1215 555 1190 580 C1175 595 1160 588 1155 570Z"/>
+  <path d="M1300 625 C1290 570 1320 545 1335 515 C1350 565 1360 600 1335 635 C1320 650 1305 642 1300 625Z"/>
+</g>
+<path d="M0 820 L1920 820 L1920 900 L0 900Z" fill="#060d14"/>
+<g transform="translate(220 625)">
+  <rect x="0" y="65" width="330" height="95" rx="18" fill="#a62222"/>
+  <rect x="60" y="15" width="145" height="100" rx="12" fill="#b62a2a"/>
+  <rect x="78" y="30" width="55" height="42" fill="#132b3e"/><rect x="142" y="30" width="45" height="42" fill="#132b3e"/>
+  <circle cx="70" cy="162" r="35" fill="#080d12"/><circle cx="275" cy="162" r="35" fill="#080d12"/>
+  <rect x="205" y="80" width="120" height="12" fill="#e7b33a"/>
+  <rect x="310" y="25" width="16" height="115" fill="#8e1b1b"/>
+</g>
+<path d="M530 665 Q850 500 1160 475" fill="none" stroke="#d9f4ff" stroke-opacity=".72" stroke-width="13"/>
+<path d="M530 665 Q850 500 1160 475" fill="none" stroke="#fff" stroke-opacity=".32" stroke-width="5"/>
+<g fill="#e9f8ff" opacity=".55">
+ <circle cx="720" cy="585" r="4"/><circle cx="810" cy="545" r="3"/><circle cx="930" cy="515" r="4"/><circle cx="1010" cy="495" r="3"/>
+</g>
+<rect width="1920" height="900" fill="#000" opacity=".18"/>
+</svg>
