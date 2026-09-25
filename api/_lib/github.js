@@ -1,0 +1,12 @@
+const OWNER=process.env.GITHUB_OWNER||"esalati";
+const REPO=process.env.GITHUB_REPO||"esalati.github.io";
+const BRANCH=process.env.CMS_BRANCH||"cms-v2";
+const API="https://api.github.com";
+function headers(token){const h={"Accept":"application/vnd.github+json","X-GitHub-Api-Version":"2022-11-28","User-Agent":"esalati-cms"};if(token)h.Authorization="Bearer "+token;return h}
+async function gh(path,token,options={}){const r=await fetch(API+path,{...options,headers:{...headers(token),...(options.headers||{})}});const d=await r.json().catch(()=>({}));if(!r.ok)throw new Error(d.message||("GitHub API error "+r.status));return d}
+export async function user(token){return gh("/user",token,{})}
+export async function getFile(path,token,branch=BRANCH){return gh("/repos/"+OWNER+"/"+REPO+"/contents/"+path+"?ref="+encodeURIComponent(branch),token,{})}
+export async function getContent(token,branch=BRANCH){try{const f=await getFile("admin/data/data/content.json",token,branch);return{content:JSON.parse(Buffer.from(f.content.replace(/\n/g,""),"base64").toString("utf8")),sha:f.sha}}catch(e){if(String(e.message).includes("404"))return{content:null,sha:null};throw e}}
+export async function putFile(path,content,token,message,sha,branch=BRANCH){const body={message,content:Buffer.from(content,"utf8").toString("base64"),branch};if(sha)body.sha=sha;return gh("/repos/"+OWNER+"/"+REPO+"/contents/"+path,token,{method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)})}
+export async function putBinary(path,base64,token,message,sha,branch=BRANCH){const body={message,content:base64,branch};if(sha)body.sha=sha;return gh("/repos/"+OWNER+"/"+REPO+"/contents/"+path,token,{method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)})}
+export async function deleteFile(path,sha,token,message,branch=BRANCH){return gh("/repos/"+OWNER+"/"+REPO+"/contents/"+path,token,{method:"DELETE",headers:{"Content-Type":"application/json"},body:JSON.stringify({message,sha,branch})})}

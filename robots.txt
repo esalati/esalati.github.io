@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://esalati.github.io/sitemap.xml
