@@ -11,6 +11,11 @@ function verifyState(state){
   if(a.length!==b.length||!crypto.timingSafeEqual(a,b))return null;
   try{const p=JSON.parse(Buffer.from(body,"base64url").toString("utf8"));if(!p?.iat||!p?.exp||!p?.redirectUri)return null;if(p.exp<Math.floor(Date.now()/1000))return null;return p;}catch{return null;}
 }
+function appBase(req){
+  const env=process.env.VERCEL_ENV||"";
+  if(env==="preview")return ("https://"+req.headers.host).replace(/\/$/,"");
+  return (process.env.APP_URL||("https://"+req.headers.host)).replace(/\/$/,"");
+}
 export default async function handler(req,res){
   try{
     const q=new URL("https://local"+(req.url||"")).searchParams;
@@ -18,7 +23,7 @@ export default async function handler(req,res){
     if(!state)throw Error("درخواست ورود معتبر نیست یا منقضی شده است.");
     const code=q.get("code");
     if(!code)throw Error("کد ورود دریافت نشد.");
-    const base=(process.env.APP_URL||("https://"+req.headers.host)).replace(/\/$/,"");
+    const base=appBase(req);
     const redirectUri=base+"/api/auth/callback";
     if(state.redirectUri!==redirectUri)throw Error("نشانی بازگشت ورود با درخواست اولیه مطابقت ندارد.");
     const rr=await fetch("https://github.com/login/oauth/access_token",{method:"POST",headers:{"Accept":"application/json","Content-Type":"application/json"},body:JSON.stringify({client_id:process.env.GITHUB_CLIENT_ID,client_secret:process.env.GITHUB_CLIENT_SECRET,code,redirect_uri:redirectUri})});
